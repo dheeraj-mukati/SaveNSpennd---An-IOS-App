@@ -24,8 +24,8 @@ class AddAccountVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func addAccount() {
+    
+    @IBAction func addAccountToDB(sender: UIBarButtonItem) {
         
         //creating category
         
@@ -41,6 +41,20 @@ class AddAccountVC: UIViewController {
         
         print("Object saved")
         print(account.id)
+        showAccountsVC()
+    }
+    
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        
+        showAccountsVC()
+        
+    }
+    
+    func showAccountsVC(){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let accountVC = storyboard.instantiateViewControllerWithIdentifier("accounts_strb_id") as! AccountVC
+        self.presentViewController(accountVC, animated: true, completion: nil)
     }
     
     /*

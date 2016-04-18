@@ -256,7 +256,7 @@
         <!--AccountVC-->
         <scene sceneID="yLF-ke-3Jm">
             <objects>
-                <viewController id="Bse-1z-Hmh" customClass="AccountVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accounts_strb_id" id="Bse-1z-Hmh" customClass="AccountVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aaH-ud-tmj"/>
                         <viewControllerLayoutGuide type="bottom" id="DLh-Jl-8r9"/>
@@ -268,10 +268,10 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zQ-M2-aAG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="olJ-RD-6MH"/>
+                                    <constraint firstAttribute="height" constant="65" id="Vkb-re-iHN"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="UT5-F0-KuW">
+                                    <navigationItem title="Bank Accounts" id="UT5-F0-KuW">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xdS-GV-u2c">
                                             <connections>
                                                 <segue destination="A2v-Tz-x0y" kind="show" id="69I-nN-j9O"/>
@@ -280,19 +280,28 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WDN-zu-MmP">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6zQ-M2-aAG" firstAttribute="top" secondItem="aaH-ud-tmj" secondAttribute="bottom" constant="-20" id="8SZ-So-09o"/>
-                            <constraint firstItem="6zQ-M2-aAG" firstAttribute="leading" secondItem="3gf-6n-qAg" secondAttribute="leading" id="RmE-W2-0Wi"/>
-                            <constraint firstAttribute="trailing" secondItem="6zQ-M2-aAG" secondAttribute="trailing" id="ahb-77-ZZ4"/>
+                            <constraint firstItem="WDN-zu-MmP" firstAttribute="centerY" secondItem="3gf-6n-qAg" secondAttribute="centerY" id="98F-8M-Yic"/>
+                            <constraint firstAttribute="trailing" secondItem="6zQ-M2-aAG" secondAttribute="trailing" id="bzI-pT-0OS"/>
+                            <constraint firstItem="6zQ-M2-aAG" firstAttribute="leading" secondItem="3gf-6n-qAg" secondAttribute="leading" id="hvX-9Z-d8U"/>
+                            <constraint firstItem="WDN-zu-MmP" firstAttribute="centerX" secondItem="3gf-6n-qAg" secondAttribute="centerX" id="rhT-IG-y4C"/>
+                            <constraint firstItem="6zQ-M2-aAG" firstAttribute="top" secondItem="3gf-6n-qAg" secondAttribute="top" id="wDm-FY-Fuo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0DN-vd-O5h"/>
+                    <connections>
+                        <outlet property="activityBar" destination="WDN-zu-MmP" id="cCg-od-QFp"/>
+                        <outlet property="navigationBar" destination="6zQ-M2-aAG" id="ub6-am-MVO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qi-FJ-fO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="463" y="-471"/>
+            <point key="canvasLocation" x="402" y="-634"/>
         </scene>
         <!--Add AccountVC-->
         <scene sceneID="mzX-HA-sLj">
@@ -306,7 +315,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: Chase Debit Card" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-Cp-xdc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Chase Debit Card" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-Cp-xdc">
                                 <rect key="frame" x="20" y="266" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -323,7 +332,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: 2000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cD-E3-Dth">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 2000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cD-E3-Dth">
                                 <rect key="frame" x="20" y="333" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -335,8 +344,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Add Account" id="POY-xQ-Cjz">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8Ec-2Q-0dn"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y7i-iU-VQ1"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8Ec-2Q-0dn">
+                                            <connections>
+                                                <action selector="cancel:" destination="A2v-Tz-x0y" id="Fhy-Da-soY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y7i-iU-VQ1">
+                                            <connections>
+                                                <action selector="addAccountToDB:" destination="A2v-Tz-x0y" id="rzO-gH-HWl"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -363,12 +380,11 @@
                     <connections>
                         <outlet property="accountName" destination="wf5-Cp-xdc" id="H3z-i0-GIc"/>
                         <outlet property="balance" destination="8cD-E3-Dth" id="D3W-cx-4LV"/>
-                        <segue destination="Bse-1z-Hmh" kind="show" id="k9o-Fc-H1R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNw-F9-U0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="-471"/>
+            <point key="canvasLocation" x="1059" y="-634"/>
         </scene>
     </scenes>
 </document>
