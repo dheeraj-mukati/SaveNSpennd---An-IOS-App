@@ -53,10 +53,10 @@
 		9E9C75FB1CB5B5D2003BC991 /* SaveNSpendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaveNSpendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9C75FF1CB5B5D2003BC991 /* SaveNSpendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNSpendTests.swift; sourceTree = "<group>"; };
 		9E9C76011CB5B5D2003BC991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9ED5BD6C1CB5BE19004BC933 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		9ED5BD6E1CB5C3FB004BC933 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		9ED5BD711CB5C86E004BC933 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		9ED5BD731CB5CAA9004BC933 /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		9ED5BD6C1CB5BE19004BC933 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = RealmModel/Category.swift; sourceTree = "<group>"; };
+		9ED5BD6E1CB5C3FB004BC933 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = RealmModel/Transaction.swift; sourceTree = "<group>"; };
+		9ED5BD711CB5C86E004BC933 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = RealmModel/Account.swift; sourceTree = "<group>"; };
+		9ED5BD731CB5CAA9004BC933 /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Budget.swift; path = RealmModel/Budget.swift; sourceTree = "<group>"; };
 		F7447143FFB20308198D6092 /* Pods-SaveNSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
