@@ -16,6 +16,7 @@ class AccountVC: UIViewController {
     
     @IBOutlet weak var activityBar: UIActivityIndicatorView!
     
+    var customSC: UISegmentedControl!
     var accountBalanceLabel: UILabel!
     let realm = try! Realm()
     
@@ -42,9 +43,9 @@ class AccountVC: UIViewController {
             createCustomSegmentControl(accounts)
             let customView = createCustomView()
             createBalanceLabel(customView)
+            createEditBankAccountIcon(customView)
             createAccountBalanceLabel(customView)
             setBankAccountBalanceText((accounts.first?.bankName)!)
-            
             
         } else {
             createCustomLabel()
@@ -83,7 +84,7 @@ class AccountVC: UIViewController {
     func createCustomSegmentControl(accounts: Results<(Account)>) {
         
         let bankNames = accounts.valueForKey("bankName") as! [String]
-        let customSC = UISegmentedControl(items: bankNames)
+        customSC = UISegmentedControl(items: bankNames)
         customSC.selectedSegmentIndex = 0
         customSC.translatesAutoresizingMaskIntoConstraints = false
         customSC.addTarget(self, action: #selector(AccountVC.bankAccountChanged(_:)), forControlEvents: .ValueChanged)
@@ -156,6 +157,30 @@ class AccountVC: UIViewController {
         superView.addConstraint(yConstraint)
     }
     
+    func createEditBankAccountIcon(superView : UIView){
+        
+        let editBankAccount = UIImage(named: "edit.png")
+        let editBankAccountView = UIImageView(image: editBankAccount)
+        editBankAccountView.translatesAutoresizingMaskIntoConstraints = false
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(AccountVC.editBankAccount(_:)))
+        editBankAccountView.userInteractionEnabled = true
+        editBankAccountView.addGestureRecognizer(tapGestureRecognizer)
+        superView.addSubview(editBankAccountView)
+        
+        let heightConstraint = NSLayoutConstraint(item: editBankAccountView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 20)
+        editBankAccountView.addConstraint(heightConstraint)
+        
+        let widthConstraint = NSLayoutConstraint(item: editBankAccountView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 20)
+        editBankAccountView.addConstraint(widthConstraint)
+        
+        let xConstraint = NSLayoutConstraint(item: editBankAccountView, attribute: .Top, relatedBy: .Equal, toItem: superView, attribute: .Top, multiplier: 1, constant: 8)
+        
+        let yConstraint = NSLayoutConstraint(item: editBankAccountView, attribute: .Right, relatedBy: .Equal, toItem: superView, attribute: .Right, multiplier: 1, constant: -8)
+        
+        superView.addConstraint(xConstraint)
+        superView.addConstraint(yConstraint)
+    }
+    
     func bankAccountChanged(sender:UISegmentedControl!){
         print(sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!)
         setBankAccountBalanceText(sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)!)
@@ -167,5 +192,18 @@ class AccountVC: UIViewController {
         let firstBankAccountBalance = realm.objects(Account).filter(predict).valueForKey("balance") as! NSArray
         print(firstBankAccountBalance[0])
         accountBalanceLabel.text = "$" + String(firstBankAccountBalance[0])
+    }
+    
+    func editBankAccount(img: AnyObject){
+    
+        let selectedBankAcount = customSC.titleForSegmentAtIndex(customSC.selectedSegmentIndex)!
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addAccountVC = storyboard.instantiateViewControllerWithIdentifier("add_account_strb_id") as! AddAccountVC
+        let account = Account()
+        account.bankName = selectedBankAcount
+        addAccountVC.bankAccountToBeEdit = account
+        self.presentViewController(addAccountVC, animated: true, completion: nil)
+        print(selectedBankAcount)
     }
 }

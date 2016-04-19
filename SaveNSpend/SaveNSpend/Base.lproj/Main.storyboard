@@ -301,12 +301,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qi-FJ-fO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="402" y="-634"/>
+            <point key="canvasLocation" x="458" y="-671"/>
         </scene>
         <!--Add AccountVC-->
         <scene sceneID="mzX-HA-sLj">
             <objects>
-                <viewController id="A2v-Tz-x0y" customClass="AddAccountVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add_account_strb_id" id="A2v-Tz-x0y" customClass="AddAccountVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hCm-fj-zxi"/>
                         <viewControllerLayoutGuide type="bottom" id="OTg-j1-EZ2"/>
@@ -380,11 +380,12 @@
                     <connections>
                         <outlet property="accountName" destination="wf5-Cp-xdc" id="H3z-i0-GIc"/>
                         <outlet property="balance" destination="8cD-E3-Dth" id="D3W-cx-4LV"/>
+                        <outlet property="navigationBar" destination="p5D-qA-PWQ" id="pew-y5-6PV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNw-F9-U0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="-634"/>
+            <point key="canvasLocation" x="1075" y="-671"/>
         </scene>
     </scenes>
 </document>

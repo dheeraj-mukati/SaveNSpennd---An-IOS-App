@@ -11,10 +11,15 @@ import RealmSwift
 
 class AddAccountVC: UIViewController {
 
+    // MARK:- Properties
     
     @IBOutlet weak var accountName: UITextField!
     
     @IBOutlet weak var balance: UITextField!
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    var bankAccountToBeEdit: Account!
     
     // Get the default Realm
     let realm = try! Realm()
@@ -22,6 +27,16 @@ class AddAccountVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if bankAccountToBeEdit != nil {
+        
+            navigationBar.topItem?.title = "Edit Account"
+            
+            let predict = NSPredicate(format: "bankName = %@", bankAccountToBeEdit.bankName)
+            bankAccountToBeEdit = realm.objects(Account).filter(predict)[0]
+            print(bankAccountToBeEdit.bankName)
+            accountName.text = bankAccountToBeEdit.bankName
+            balance.text = String(bankAccountToBeEdit.balance)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -30,13 +45,18 @@ class AddAccountVC: UIViewController {
         //creating category
         
         let account = Account()
-        account.id = account.incrementaID()
+        if bankAccountToBeEdit != nil {
+            print("inside not nil")
+            account.id = bankAccountToBeEdit.id
+        }else{
+            account.id = account.incrementaID()
+        }
         account.bankName = accountName.text!
         account.balance = Int(balance.text!)!
         
         // Add to the Realm inside a transaction
         try! realm.write {
-            realm.add(account)
+            realm.add(account, update: true)
         }
         
         print("Object saved")
