@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class AddAccountVC: UIViewController {
-
+    
     // MARK:- Properties
     
     @IBOutlet weak var accountName: UITextField!
@@ -26,9 +26,9 @@ class AddAccountVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if bankAccountToBeEdit != nil {
         
+        if bankAccountToBeEdit != nil {
+            
             navigationBar.topItem?.title = "Edit Account"
             
             let predict = NSPredicate(format: "bankName = %@", bankAccountToBeEdit.bankName)
@@ -78,13 +78,13 @@ class AddAccountVC: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bse-1z-Hmh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mGr-sE-cc3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -303,6 +303,187 @@
             </objects>
             <point key="canvasLocation" x="458" y="-671"/>
         </scene>
+        <!--CategoryVC-->
+        <scene sceneID="cgW-Yg-9F5">
+            <objects>
+                <viewController storyboardIdentifier="category_strb_id" id="mGr-sE-cc3" customClass="CategoryVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F1k-Yd-uwu"/>
+                        <viewControllerLayoutGuide type="bottom" id="occ-DE-5JG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DjY-IJ-Tco">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8d-CZ-301">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="zXz-Og-Dil"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Categories" id="7sQ-yw-dSJ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JMX-XD-9jj">
+                                            <connections>
+                                                <segue destination="VgV-gq-n8D" kind="show" id="9vx-87-Bcf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-kz-O08">
+                                <rect key="frame" x="0.0" y="137" width="600" height="463"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="category_cell" id="6IE-kI-0MA">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6IE-kI-0MA" id="2QZ-va-RMx">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mGr-sE-cc3" id="WVR-YX-LL6"/>
+                                    <outlet property="delegate" destination="mGr-sE-cc3" id="v9C-Dd-KfC"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r9J-lY-GRD">
+                                <rect key="frame" x="8" y="87" width="584" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Zpx-q6-9TV"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Expense"/>
+                                    <segment title="Income"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeCategoryData:" destination="mGr-sE-cc3" eventType="valueChanged" id="Zw9-7j-oxE"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r9J-lY-GRD" firstAttribute="leading" secondItem="DjY-IJ-Tco" secondAttribute="leading" constant="8" id="8zV-Td-ZFZ"/>
+                            <constraint firstItem="fPU-kz-O08" firstAttribute="top" secondItem="r9J-lY-GRD" secondAttribute="bottom" constant="22" id="9zm-ow-G2Y"/>
+                            <constraint firstAttribute="trailing" secondItem="c8d-CZ-301" secondAttribute="trailing" id="AaZ-Ho-o8k"/>
+                            <constraint firstItem="c8d-CZ-301" firstAttribute="top" secondItem="DjY-IJ-Tco" secondAttribute="top" id="Bgy-Oh-lYH"/>
+                            <constraint firstItem="fPU-kz-O08" firstAttribute="leading" secondItem="DjY-IJ-Tco" secondAttribute="leading" id="CUz-fK-yIp"/>
+                            <constraint firstItem="occ-DE-5JG" firstAttribute="top" secondItem="fPU-kz-O08" secondAttribute="bottom" id="Mpy-WN-jbu"/>
+                            <constraint firstAttribute="trailing" secondItem="r9J-lY-GRD" secondAttribute="trailing" constant="8" id="eEL-PX-iVJ"/>
+                            <constraint firstItem="c8d-CZ-301" firstAttribute="leading" secondItem="DjY-IJ-Tco" secondAttribute="leading" id="hkP-Kk-aHb"/>
+                            <constraint firstAttribute="trailing" secondItem="fPU-kz-O08" secondAttribute="trailing" id="i0l-td-4xw"/>
+                            <constraint firstItem="r9J-lY-GRD" firstAttribute="centerX" secondItem="DjY-IJ-Tco" secondAttribute="centerX" id="pgS-lj-vm1"/>
+                            <constraint firstItem="r9J-lY-GRD" firstAttribute="top" secondItem="c8d-CZ-301" secondAttribute="bottom" constant="22" id="wFL-LS-iAY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categoryData" destination="fPU-kz-O08" id="MUC-N9-fpi"/>
+                        <outlet property="categoryType" destination="r9J-lY-GRD" id="Qmt-4Z-rNY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otf-40-0ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="458" y="78"/>
+        </scene>
+        <!--Add CategoryVC-->
+        <scene sceneID="gzP-Yz-Zeu">
+            <objects>
+                <viewController storyboardIdentifier="add_category_strb_id" id="VgV-gq-n8D" customClass="AddCategoryVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="19d-PW-fAY"/>
+                        <viewControllerLayoutGuide type="bottom" id="pUT-6p-XNZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dPw-QM-iB7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ta5-JA-cye">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="q2U-I9-0fk"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Add Category" id="4rM-jh-Oxq">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="MH7-xH-85c">
+                                            <connections>
+                                                <action selector="cancelAddCategory:" destination="VgV-gq-n8D" id="iyP-du-Vfs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6pC-RI-rhD">
+                                            <connections>
+                                                <action selector="addCategory:" destination="VgV-gq-n8D" id="bYI-ef-KgS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tdR-jk-wFF">
+                                <rect key="frame" x="20" y="321" width="560" height="53"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VgV-gq-n8D" id="pN1-D5-VLg"/>
+                                    <outlet property="delegate" destination="VgV-gq-n8D" id="7ru-jz-cXm"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose category type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVW-6T-O5L">
+                                <rect key="frame" x="20" y="292" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-Mk-R0U">
+                                <rect key="frame" x="20" y="225" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obs-Sa-Kh6">
+                                <rect key="frame" x="20" y="254" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="obs-Sa-Kh6" firstAttribute="leading" secondItem="dPw-QM-iB7" secondAttribute="leadingMargin" id="0ch-1o-iaP"/>
+                            <constraint firstItem="tdR-jk-wFF" firstAttribute="leading" secondItem="dPw-QM-iB7" secondAttribute="leadingMargin" id="25H-6u-clr"/>
+                            <constraint firstItem="obs-Sa-Kh6" firstAttribute="centerX" secondItem="dPw-QM-iB7" secondAttribute="centerX" id="9fM-hD-IAy"/>
+                            <constraint firstItem="ta5-JA-cye" firstAttribute="leading" secondItem="dPw-QM-iB7" secondAttribute="leading" id="GZh-Gf-JfA"/>
+                            <constraint firstItem="KVW-6T-O5L" firstAttribute="centerX" secondItem="dPw-QM-iB7" secondAttribute="centerX" id="HEb-vt-HfY"/>
+                            <constraint firstItem="cbp-Mk-R0U" firstAttribute="trailing" secondItem="dPw-QM-iB7" secondAttribute="trailingMargin" id="IdC-Hm-yDM"/>
+                            <constraint firstItem="KVW-6T-O5L" firstAttribute="trailing" secondItem="dPw-QM-iB7" secondAttribute="trailingMargin" id="IsC-WZ-H3E"/>
+                            <constraint firstItem="tdR-jk-wFF" firstAttribute="trailing" secondItem="dPw-QM-iB7" secondAttribute="trailingMargin" id="OZT-a9-ltr"/>
+                            <constraint firstAttribute="trailing" secondItem="ta5-JA-cye" secondAttribute="trailing" id="PpM-x0-Mjb"/>
+                            <constraint firstItem="ta5-JA-cye" firstAttribute="top" secondItem="dPw-QM-iB7" secondAttribute="top" id="Qxo-fd-ELj"/>
+                            <constraint firstItem="obs-Sa-Kh6" firstAttribute="centerY" secondItem="dPw-QM-iB7" secondAttribute="centerY" constant="-31" id="WhU-VL-Rfp"/>
+                            <constraint firstItem="cbp-Mk-R0U" firstAttribute="centerY" secondItem="dPw-QM-iB7" secondAttribute="centerY" constant="-64.5" id="Ztq-xA-8HJ"/>
+                            <constraint firstItem="cbp-Mk-R0U" firstAttribute="centerX" secondItem="dPw-QM-iB7" secondAttribute="centerX" id="cb6-Qx-rSW"/>
+                            <constraint firstItem="obs-Sa-Kh6" firstAttribute="trailing" secondItem="dPw-QM-iB7" secondAttribute="trailingMargin" id="iFT-7a-dzy"/>
+                            <constraint firstItem="KVW-6T-O5L" firstAttribute="leading" secondItem="dPw-QM-iB7" secondAttribute="leadingMargin" id="qLr-n8-m6b"/>
+                            <constraint firstItem="tdR-jk-wFF" firstAttribute="centerX" secondItem="dPw-QM-iB7" secondAttribute="centerX" id="wTR-6q-clh"/>
+                            <constraint firstItem="KVW-6T-O5L" firstAttribute="centerY" secondItem="dPw-QM-iB7" secondAttribute="centerY" constant="2.5" id="wjv-gq-vvd"/>
+                            <constraint firstItem="cbp-Mk-R0U" firstAttribute="leading" secondItem="dPw-QM-iB7" secondAttribute="leadingMargin" id="xvb-Ri-eHB"/>
+                            <constraint firstItem="tdR-jk-wFF" firstAttribute="centerY" secondItem="dPw-QM-iB7" secondAttribute="centerY" constant="47.5" id="zue-qD-ZMF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categoryName" destination="obs-Sa-Kh6" id="Kan-sK-4OB"/>
+                        <outlet property="categoryType" destination="tdR-jk-wFF" id="Ncb-If-79y"/>
+                        <outlet property="searchDisplayController" destination="F0w-3l-sQP" id="Vev-Oy-Qqx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGf-eR-E8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="F0w-3l-sQP">
+                    <connections>
+                        <outlet property="delegate" destination="VgV-gq-n8D" id="MsC-B0-bpF"/>
+                        <outlet property="searchContentsController" destination="VgV-gq-n8D" id="E8b-Sb-DDf"/>
+                        <outlet property="searchResultsDataSource" destination="VgV-gq-n8D" id="YkE-nD-J58"/>
+                        <outlet property="searchResultsDelegate" destination="VgV-gq-n8D" id="Kws-nr-p72"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1119" y="78"/>
+        </scene>
         <!--Add AccountVC-->
         <scene sceneID="mzX-HA-sLj">
             <objects>
@@ -385,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNw-F9-U0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="-671"/>
+            <point key="canvasLocation" x="1110" y="-671"/>
         </scene>
     </scenes>
 </document>

@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E4B01FF1CC550FA00614392 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B01FE1CC550FA00614392 /* edit.png */; };
-		9E5F27C21CC3034400641F06 /* AddAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5F27C11CC3034400641F06 /* AddAccountVC.swift */; };
-		9E5F27C41CC3087200641F06 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5F27C31CC3087200641F06 /* AccountVC.swift */; };
 		9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */; };
-		9E9C75ED1CB5B5D1003BC991 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9C75EC1CB5B5D1003BC991 /* ViewController.swift */; };
 		9E9C75F01CB5B5D1003BC991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */; };
 		9E9C75F21CB5B5D1003BC991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */; };
 		9E9C75F51CB5B5D1003BC991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C75F31CB5B5D1003BC991 /* LaunchScreen.storyboard */; };
@@ -20,6 +17,11 @@
 		9ED5BD6F1CB5C3FB004BC933 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5BD6E1CB5C3FB004BC933 /* Transaction.swift */; };
 		9ED5BD721CB5C86E004BC933 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5BD711CB5C86E004BC933 /* Account.swift */; };
 		9ED5BD741CB5CAA9004BC933 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5BD731CB5CAA9004BC933 /* Budget.swift */; };
+		9EE3FAA01CC87D450084606A /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FA9F1CC87D450084606A /* AccountVC.swift */; };
+		9EE3FAA21CC87D810084606A /* AddAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA11CC87D810084606A /* AddAccountVC.swift */; };
+		9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA31CC87DB50084606A /* ViewController.swift */; };
+		9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */; };
+		9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */; };
 		C8C1D117BCB6A71219AA0696 /* Pods_SaveNSpendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EE07ACD07AEA78781442C /* Pods_SaveNSpendTests.framework */; };
 		EDA8A236EB60049292506E9C /* Pods_SaveNSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */; };
 /* End PBXBuildFile section */
@@ -41,11 +43,8 @@
 		8CB1539CF8DD9554B853A279 /* Pods-SaveNSpendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpendTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpendTests/Pods-SaveNSpendTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveNSpend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
-		9E5F27C11CC3034400641F06 /* AddAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddAccountVC.swift; path = "View Controller/AddAccountVC.swift"; sourceTree = "<group>"; };
-		9E5F27C31CC3087200641F06 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountVC.swift; path = "View Controller/AccountVC.swift"; sourceTree = "<group>"; };
 		9E9C75E71CB5B5D1003BC991 /* SaveNSpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveNSpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E9C75EC1CB5B5D1003BC991 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controller/ViewController.swift"; sourceTree = "<group>"; };
 		9E9C75EF1CB5B5D1003BC991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E9C75F41CB5B5D1003BC991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +56,11 @@
 		9ED5BD6E1CB5C3FB004BC933 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = RealmModel/Transaction.swift; sourceTree = "<group>"; };
 		9ED5BD711CB5C86E004BC933 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = RealmModel/Account.swift; sourceTree = "<group>"; };
 		9ED5BD731CB5CAA9004BC933 /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Budget.swift; path = RealmModel/Budget.swift; sourceTree = "<group>"; };
+		9EE3FA9F1CC87D450084606A /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountVC.swift; path = "View Controller/AccountVC.swift"; sourceTree = "<group>"; };
+		9EE3FAA11CC87D810084606A /* AddAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddAccountVC.swift; path = "View Controller/AddAccountVC.swift"; sourceTree = "<group>"; };
+		9EE3FAA31CC87DB50084606A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controller/ViewController.swift"; sourceTree = "<group>"; };
+		9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryVC.swift; sourceTree = "<group>"; };
 		F7447143FFB20308198D6092 /* Pods-SaveNSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,16 +93,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9E4B01FD1CC54DB200614392 /* View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9E9C75EC1CB5B5D1003BC991 /* ViewController.swift */,
-				9E5F27C31CC3087200641F06 /* AccountVC.swift */,
-				9E5F27C11CC3034400641F06 /* AddAccountVC.swift */,
-			);
-			name = "View Controller";
-			sourceTree = "<group>";
-		};
 		9E9C75DE1CB5B5D1003BC991 = {
 			isa = PBXGroup;
 			children = (
@@ -123,13 +117,15 @@
 			isa = PBXGroup;
 			children = (
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
-				9E4B01FD1CC54DB200614392 /* View Controller */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
+				9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */,
+				9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */,
 				9E4B01FE1CC550FA00614392 /* edit.png */,
 				9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */,
 				9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */,
 				9E9C75F31CB5B5D1003BC991 /* LaunchScreen.storyboard */,
 				9E9C75F61CB5B5D1003BC991 /* Info.plist */,
+				9EE3FAA51CC87DC30084606A /* View Controller */,
 			);
 			path = SaveNSpend;
 			sourceTree = "<group>";
@@ -152,6 +148,16 @@
 				9ED5BD731CB5CAA9004BC933 /* Budget.swift */,
 			);
 			name = RealmModel;
+			sourceTree = "<group>";
+		};
+		9EE3FAA51CC87DC30084606A /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9EE3FA9F1CC87D450084606A /* AccountVC.swift */,
+				9EE3FAA11CC87D810084606A /* AddAccountVC.swift */,
+				9EE3FAA31CC87DB50084606A /* ViewController.swift */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 		E0DAAF47C53539A35ED84ED5 /* Pods */ = {
@@ -368,13 +374,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E5F27C41CC3087200641F06 /* AccountVC.swift in Sources */,
 				9ED5BD721CB5C86E004BC933 /* Account.swift in Sources */,
-				9E9C75ED1CB5B5D1003BC991 /* ViewController.swift in Sources */,
+				9EE3FAA21CC87D810084606A /* AddAccountVC.swift in Sources */,
 				9ED5BD741CB5CAA9004BC933 /* Budget.swift in Sources */,
+				9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */,
+				9EE3FAA01CC87D450084606A /* AccountVC.swift in Sources */,
 				9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */,
-				9E5F27C21CC3034400641F06 /* AddAccountVC.swift in Sources */,
+				9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */,
 				9ED5BD6F1CB5C3FB004BC933 /* Transaction.swift in Sources */,
+				9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */,
 				9ED5BD6D1CB5BE19004BC933 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

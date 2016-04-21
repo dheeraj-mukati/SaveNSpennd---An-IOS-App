@@ -18,6 +18,19 @@ class Category: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    // MARK: incrementaID
+    func incrementaID() -> Int{
+        let realm = try! Realm()
+        let RetNext: NSArray = Array(realm.objects(Category).sorted("id"))
+        let last = RetNext.lastObject
+        if RetNext.count > 0 {
+            let valor = last?.valueForKey("id") as? Int
+            return valor! + 1
+        } else {
+            return 1
+        }
+    }
 }
 
 

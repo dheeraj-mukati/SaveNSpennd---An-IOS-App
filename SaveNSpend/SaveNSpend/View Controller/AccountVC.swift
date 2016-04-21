@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class AccountVC: UIViewController {
-
+    
     // MARK: - Properties
     @IBOutlet weak var navigationBar: UINavigationBar!
     
@@ -30,9 +30,9 @@ class AccountVC: UIViewController {
         
         // to delete default.real
         
-//        if let path = Realm.Configuration.defaultConfiguration.path {
-//            try! NSFileManager().removeItemAtPath(path)
-//        }
+        //        if let path = Realm.Configuration.defaultConfiguration.path {
+        //            try! NSFileManager().removeItemAtPath(path)
+        //        }
         
         activityBar.hidden = false
         activityBar.startAnimating()
@@ -58,7 +58,7 @@ class AccountVC: UIViewController {
     // MARK: - Custom UIView Functions
     
     func createCustomLabel(){
-    
+        
         let customLabel = UILabel()
         customLabel.textAlignment = .Center
         customLabel.font = customLabel.font.fontWithSize(18)
@@ -99,7 +99,7 @@ class AccountVC: UIViewController {
     }
     
     func createCustomView() -> UIView {
-    
+        
         let customView = UIView()
         customView.backgroundColor = UIColor.lightGrayColor()
         customView.translatesAutoresizingMaskIntoConstraints = false
@@ -142,7 +142,7 @@ class AccountVC: UIViewController {
     }
     
     func createAccountBalanceLabel(superView : UIView){
-    
+        
         accountBalanceLabel = UILabel()
         accountBalanceLabel.textAlignment = .Center
         accountBalanceLabel.font = accountBalanceLabel.font.fontWithSize(30)
@@ -195,7 +195,7 @@ class AccountVC: UIViewController {
     }
     
     func editBankAccount(img: AnyObject){
-    
+        
         let selectedBankAcount = customSC.titleForSegmentAtIndex(customSC.selectedSegmentIndex)!
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
