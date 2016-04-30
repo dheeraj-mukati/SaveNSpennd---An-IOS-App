@@ -16,19 +16,29 @@ class AddCategoryVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var categoryType: UIPickerView!
     @IBOutlet weak var categoryName: UITextField!
     
-    var categoryToBeEdited: String!
-    var categoryToBeEditedType: String!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    var categoryToBeEdit: Category!
     
     let categoryTypeArray = ["Expense","Income"]
 
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("h")
-        print(categoryToBeEdited)
-        print(categoryToBeEditedType)
+        if categoryToBeEdit != nil {
+            
+            navigationBar.topItem?.title = "Edit Category"
+            
+            let predict = NSPredicate(format: "name = %@", categoryToBeEdit.name)
+            categoryToBeEdit = realm.objects(Category).filter(predict)[0]
+            print(categoryToBeEdit.name)
+            categoryName.text = categoryToBeEdit.name
+            categoryType.selectRow(categoryTypeArray.indexOf(categoryToBeEdit.type)!, inComponent: 0, animated: true)
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,18 +66,20 @@ class AddCategoryVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         //creating category
         
         let category = Category()
-        category.id = category.incrementaID()
+        if categoryToBeEdit != nil {
+            category.id = categoryToBeEdit.id
+        }else {
+            category.id = category.incrementaID()
+        }
+        
         category.name = categoryName.text!
         category.type = categoryTypeArray[categoryType.selectedRowInComponent(0)]
-        let realm = try! Realm()
+        
         // Add to the Realm inside a transaction
         try! realm.write {
             realm.add(category, update: true)
         }
-        
-        print(category)
-        print("Object saved")
-        print(category.id)
+
         showCategoryVC()
     }
     

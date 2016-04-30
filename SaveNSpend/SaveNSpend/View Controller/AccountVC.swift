@@ -16,6 +16,8 @@ class AccountVC: UIViewController {
     
     @IBOutlet weak var activityBar: UIActivityIndicatorView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var customSC: UISegmentedControl!
     var accountBalanceLabel: UILabel!
     let realm = try! Realm()
@@ -88,14 +90,23 @@ class AccountVC: UIViewController {
         customSC.selectedSegmentIndex = 0
         customSC.translatesAutoresizingMaskIntoConstraints = false
         customSC.addTarget(self, action: #selector(AccountVC.bankAccountChanged(_:)), forControlEvents: .ValueChanged)
-        self.view.addSubview(customSC)
+        self.scrollView.addSubview(customSC)
         
-        let xConstraint = NSLayoutConstraint(item: customSC, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0)
+        scrollView.contentSize = customSC.frame.size
+        var xConstraint = NSLayoutConstraint()
+        var yConstraint = NSLayoutConstraint()
+        if customSC.frame.width <= self.view.frame.width {
+            xConstraint = NSLayoutConstraint(item: customSC, attribute: .CenterX, relatedBy: .Equal, toItem: self.scrollView, attribute: .CenterX, multiplier: 1, constant: 0)
+            
+            yConstraint = NSLayoutConstraint(item: customSC, attribute: .Top, relatedBy: .Equal, toItem: self.scrollView, attribute: .Top, multiplier: 1, constant: 8)
+        }else {
+            xConstraint = NSLayoutConstraint(item: customSC, attribute: .Left, relatedBy: .Equal, toItem: self.scrollView, attribute: .Left, multiplier: 1, constant: 8)
+            
+            yConstraint = NSLayoutConstraint(item: customSC, attribute: .CenterY, relatedBy: .Equal, toItem: self.scrollView, attribute: .CenterY, multiplier: 1, constant: 5)
+        }
         
-        let yConstraint = NSLayoutConstraint(item: customSC, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: navigationBar.frame.size.height + 10)
-        
-        self.view.addConstraint(xConstraint)
-        self.view.addConstraint(yConstraint)
+        self.scrollView.addConstraint(xConstraint)
+        self.scrollView.addConstraint(yConstraint)
     }
     
     func createCustomView() -> UIView {

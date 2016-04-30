@@ -52,8 +52,10 @@ class CategoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addCategoryVC = storyboard.instantiateViewControllerWithIdentifier("add_category_strb_id") as! AddCategoryVC
-        addCategoryVC.categoryToBeEdited = selectedCategory
-        addCategoryVC.categoryToBeEditedType = categoryType.titleForSegmentAtIndex(categoryType.selectedSegmentIndex)!
+        let category = Category()
+        category.name = selectedCategory
+        category.type = categoryType.titleForSegmentAtIndex(categoryType.selectedSegmentIndex)!
+        addCategoryVC.categoryToBeEdit = category
         self.presentViewController(addCategoryVC, animated: true, completion: nil)
     }
     

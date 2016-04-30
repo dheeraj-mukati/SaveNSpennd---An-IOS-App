@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */; };
+		9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */; };
+		9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */; };
 		9E4B01FF1CC550FA00614392 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B01FE1CC550FA00614392 /* edit.png */; };
+		9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9619531CD416D300FAFC61 /* DashboardVC.swift */; };
 		9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */; };
 		9E9C75F01CB5B5D1003BC991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */; };
 		9E9C75F21CB5B5D1003BC991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */; };
@@ -42,7 +46,11 @@
 		891055FF9C28BB78278B7512 /* Pods-SaveNSpend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.debug.xcconfig"; sourceTree = "<group>"; };
 		8CB1539CF8DD9554B853A279 /* Pods-SaveNSpendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpendTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpendTests/Pods-SaveNSpendTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveNSpend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
+		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
+		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		9E9619531CD416D300FAFC61 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		9E9C75E71CB5B5D1003BC991 /* SaveNSpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveNSpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E9C75EF1CB5B5D1003BC991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 		9E9C75DE1CB5B5D1003BC991 = {
 			isa = PBXGroup;
 			children = (
+				9E9619531CD416D300FAFC61 /* DashboardVC.swift */,
 				9E9C75E91CB5B5D1003BC991 /* SaveNSpend */,
 				9E9C75FE1CB5B5D2003BC991 /* SaveNSpendTests */,
 				9E9C75E81CB5B5D1003BC991 /* Products */,
@@ -118,6 +127,9 @@
 			children = (
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
+				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
+				9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */,
+				9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */,
 				9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */,
 				9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */,
 				9E4B01FE1CC550FA00614392 /* edit.png */,
@@ -380,8 +392,12 @@
 				9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */,
 				9EE3FAA01CC87D450084606A /* AccountVC.swift in Sources */,
 				9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */,
+				9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */,
 				9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */,
 				9ED5BD6F1CB5C3FB004BC933 /* Transaction.swift in Sources */,
+				9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */,
+				9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */,
+				9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */,
 				9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */,
 				9ED5BD6D1CB5BE19004BC933 /* Category.swift in Sources */,
 			);
