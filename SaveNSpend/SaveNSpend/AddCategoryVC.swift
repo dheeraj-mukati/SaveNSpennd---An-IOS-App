@@ -90,9 +90,10 @@ class AddCategoryVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     func showCategoryVC(){
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let categoryVC = storyboard.instantiateViewControllerWithIdentifier("category_strb_id") as! CategoryVC
-        self.presentViewController(categoryVC, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let categoryVC = storyboard.instantiateViewControllerWithIdentifier("category_strb_id") as! CategoryVC
+        //self.presentViewController(categoryVC, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

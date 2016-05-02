@@ -24,7 +24,7 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         transactionTableView.delegate = self
         transactionTableView.dataSource = self

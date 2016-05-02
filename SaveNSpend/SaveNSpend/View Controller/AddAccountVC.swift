@@ -9,6 +9,9 @@
 import UIKit
 import RealmSwift
 
+protocol AccountAddedDelegate{
+    func accountAdded(bankName:String, isAccountEdited:Bool)
+}
 class AddAccountVC: UIViewController {
     
     // MARK:- Properties
@@ -18,6 +21,8 @@ class AddAccountVC: UIViewController {
     @IBOutlet weak var balance: UITextField!
     
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+     var delegate:AccountAddedDelegate? = nil
     
     var bankAccountToBeEdit: Account!
     
@@ -37,54 +42,57 @@ class AddAccountVC: UIViewController {
             accountName.text = bankAccountToBeEdit.bankName
             balance.text = String(bankAccountToBeEdit.balance)
         }
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func addAccountToDB(sender: UIBarButtonItem) {
         
         //creating category
-        
-        let account = Account()
-        if bankAccountToBeEdit != nil {
-            print("inside not nil")
-            account.id = bankAccountToBeEdit.id
+        if accountName.text == "" || balance.text == "" {
+            showErrorAlert()
         }else{
-            account.id = account.incrementaID()
+            let account = Account()
+            if bankAccountToBeEdit != nil {
+                delegate?.accountAdded(accountName.text!, isAccountEdited: true)
+                account.id = bankAccountToBeEdit.id
+            }else{
+                delegate?.accountAdded(accountName.text!, isAccountEdited: false)
+                account.id = account.incrementaID()
+            }
+            account.bankName = accountName.text!
+            account.balance = Int(balance.text!)!
+            
+            // Add to the Realm inside a transaction
+            try! realm.write {
+                realm.add(account, update: true)
+            }
+            
+            print("Object saved")
+            print(account.id)
+            
+            if (delegate != nil){
+                showAccountsVC()
+            }
         }
-        account.bankName = accountName.text!
-        account.balance = Int(balance.text!)!
-        
-        // Add to the Realm inside a transaction
-        try! realm.write {
-            realm.add(account, update: true)
-        }
-        
-        print("Object saved")
-        print(account.id)
-        showAccountsVC()
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
         
         showAccountsVC()
+    }
+    
+    func showErrorAlert(){
+    
+        let alertController = UIAlertController(title: "Error", message:
+            "Fields can not be blank!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func showAccountsVC(){
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let accountVC = storyboard.instantiateViewControllerWithIdentifier("accounts_strb_id") as! AccountVC
-        self.presentViewController(accountVC, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let accountVC = storyboard.instantiateViewControllerWithIdentifier("accounts_strb_id") as! AccountVC
+        //self.presentViewController(accountVC, animated: true, completion: nil)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

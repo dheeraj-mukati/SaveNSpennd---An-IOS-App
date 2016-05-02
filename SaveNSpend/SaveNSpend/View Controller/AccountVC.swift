@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AccountVC: UIViewController {
+class AccountVC: UIViewController, AccountAddedDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -20,15 +20,14 @@ class AccountVC: UIViewController {
     
     var customSC: UISegmentedControl!
     var accountBalanceLabel: UILabel!
+    var addAccountUILabel: UILabel!
     let realm = try! Realm()
+    var accounts: Results<(Account)>!
     
     // MARK: - Super class Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         
         // to delete default.real
         
@@ -36,11 +35,33 @@ class AccountVC: UIViewController {
         //            try! NSFileManager().removeItemAtPath(path)
         //        }
         
+        print("accounts.count: \(accounts)")
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        activityBar.hidden = true
+        accounts = realm.objects(Account)
+        if accounts.count > 0 {
+            createSubViews()
+        } else {
+            createCustomLabel()
+        }
+    }
+    
+    func accountAdded(bankName:String, isAccountEdited:Bool) {
+    
+        if accounts.count == 1 {
+            createSubViews()
+            addAccountUILabel.removeFromSuperview()
+        } else {
+            customSC.insertSegmentWithTitle(bankName, atIndex: accounts.count, animated: true)
+            scrollView.contentSize = customSC.frame.size // updating scrolView width
+        }
+    }
+    
+    func createSubViews(){
+        
         activityBar.hidden = false
         activityBar.startAnimating()
-        
-        let accounts = realm.objects(Account)
-        
+    
         if accounts.count > 0 {
             createCustomSegmentControl(accounts)
             let customView = createCustomView()
@@ -54,29 +75,32 @@ class AccountVC: UIViewController {
         }
         activityBar.stopAnimating()
         activityBar.hidden = true
-        
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let addAccountVC = segue.destinationViewController as! AddAccountVC
+        addAccountVC.delegate = self
+    }
     // MARK: - Custom UIView Functions
     
     func createCustomLabel(){
         
-        let customLabel = UILabel()
-        customLabel.textAlignment = .Center
-        customLabel.font = customLabel.font.fontWithSize(18)
-        customLabel.text = "Click on + sign to add a new account"
-        customLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(customLabel)
+        addAccountUILabel = UILabel()
+        addAccountUILabel.textAlignment = .Center
+        addAccountUILabel.font = addAccountUILabel.font.fontWithSize(18)
+        addAccountUILabel.text = "Click on + sign to add a new account"
+        addAccountUILabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(addAccountUILabel)
         
-        let widthConstraint = NSLayoutConstraint(item: customLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 400)
-        customLabel.addConstraint(widthConstraint)
+        let widthConstraint = NSLayoutConstraint(item: addAccountUILabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 400)
+        addAccountUILabel.addConstraint(widthConstraint)
         
-        let heightConstraint = NSLayoutConstraint(item: customLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 100)
-        customLabel.addConstraint(heightConstraint)
+        let heightConstraint = NSLayoutConstraint(item: addAccountUILabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 100)
+        addAccountUILabel.addConstraint(heightConstraint)
         
-        let xConstraint = NSLayoutConstraint(item: customLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0)
+        let xConstraint = NSLayoutConstraint(item: addAccountUILabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0)
         
-        let yConstraint = NSLayoutConstraint(item: customLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1, constant: 0)
+        let yConstraint = NSLayoutConstraint(item: addAccountUILabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1, constant: 0)
         
         self.view.addConstraint(xConstraint)
         self.view.addConstraint(yConstraint)
@@ -90,6 +114,8 @@ class AccountVC: UIViewController {
         customSC.selectedSegmentIndex = 0
         customSC.translatesAutoresizingMaskIntoConstraints = false
         customSC.addTarget(self, action: #selector(AccountVC.bankAccountChanged(_:)), forControlEvents: .ValueChanged)
+        let attr = NSDictionary(object: UIFont(name: "HelveticaNeue-Bold", size: 17.0)!, forKey: NSFontAttributeName)
+        customSC.setTitleTextAttributes(attr as [NSObject : AnyObject] , forState: .Normal)
         self.scrollView.addSubview(customSC)
         
         scrollView.contentSize = customSC.frame.size
@@ -105,6 +131,9 @@ class AccountVC: UIViewController {
             yConstraint = NSLayoutConstraint(item: customSC, attribute: .CenterY, relatedBy: .Equal, toItem: self.scrollView, attribute: .CenterY, multiplier: 1, constant: 5)
         }
         
+        let heightConstraint = NSLayoutConstraint(item: customSC, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 55)
+        
+        self.scrollView.addConstraint(heightConstraint)
         self.scrollView.addConstraint(xConstraint)
         self.scrollView.addConstraint(yConstraint)
     }
@@ -120,7 +149,7 @@ class AccountVC: UIViewController {
         let horizontalConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
         view.addConstraint(horizontalConstraint)
         
-        let verticalConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 120)
+        let verticalConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 150)
         view.addConstraint(verticalConstraint)
         
         let leftConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
@@ -214,7 +243,7 @@ class AccountVC: UIViewController {
         let account = Account()
         account.bankName = selectedBankAcount
         addAccountVC.bankAccountToBeEdit = account
-        self.presentViewController(addAccountVC, animated: true, completion: nil)
-        print(selectedBankAcount)
+        addAccountVC.delegate = self
+        self.navigationController?.pushViewController(addAccountVC, animated: true)
     }
 }

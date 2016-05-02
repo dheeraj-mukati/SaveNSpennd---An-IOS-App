@@ -11,6 +11,8 @@
 		9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */; };
 		9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */; };
 		9E4B01FF1CC550FA00614392 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B01FE1CC550FA00614392 /* edit.png */; };
+		9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */; };
+		9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */; };
 		9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9619531CD416D300FAFC61 /* DashboardVC.swift */; };
 		9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */; };
 		9E9C75F01CB5B5D1003BC991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */; };
@@ -50,7 +52,11 @@
 		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
-		9E9619531CD416D300FAFC61 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
+		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuTableVC.swift; path = ../MainMenuTableVC.swift; sourceTree = "<group>"; };
+		9E9619531CD416D300FAFC61 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardVC.swift; path = ../DashboardVC.swift; sourceTree = "<group>"; };
 		9E9C75E71CB5B5D1003BC991 /* SaveNSpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveNSpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E9C75EF1CB5B5D1003BC991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,10 +107,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9E86E36C1CD6ACB9004F2394 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */,
+				9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */,
+				9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		9E9C75DE1CB5B5D1003BC991 = {
 			isa = PBXGroup;
 			children = (
-				9E9619531CD416D300FAFC61 /* DashboardVC.swift */,
 				9E9C75E91CB5B5D1003BC991 /* SaveNSpend */,
 				9E9C75FE1CB5B5D2003BC991 /* SaveNSpendTests */,
 				9E9C75E81CB5B5D1003BC991 /* Products */,
@@ -125,19 +141,22 @@
 		9E9C75E91CB5B5D1003BC991 /* SaveNSpend */ = {
 			isa = PBXGroup;
 			children = (
+				9EE3FAA51CC87DC30084606A /* View Controller */,
+				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
+				9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */,
 				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
 				9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */,
 				9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */,
 				9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */,
 				9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */,
+				9E9619531CD416D300FAFC61 /* DashboardVC.swift */,
 				9E4B01FE1CC550FA00614392 /* edit.png */,
 				9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */,
 				9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */,
 				9E9C75F31CB5B5D1003BC991 /* LaunchScreen.storyboard */,
 				9E9C75F61CB5B5D1003BC991 /* Info.plist */,
-				9EE3FAA51CC87DC30084606A /* View Controller */,
 			);
 			path = SaveNSpend;
 			sourceTree = "<group>";
@@ -388,6 +407,7 @@
 			files = (
 				9ED5BD721CB5C86E004BC933 /* Account.swift in Sources */,
 				9EE3FAA21CC87D810084606A /* AddAccountVC.swift in Sources */,
+				9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */,
 				9ED5BD741CB5CAA9004BC933 /* Budget.swift in Sources */,
 				9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */,
 				9EE3FAA01CC87D450084606A /* AccountVC.swift in Sources */,
@@ -396,6 +416,7 @@
 				9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */,
 				9ED5BD6F1CB5C3FB004BC933 /* Transaction.swift in Sources */,
 				9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */,
+				9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */,
 				9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */,
 				9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */,
 				9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */,
@@ -531,10 +552,13 @@
 			baseConfigurationReference = 891055FF9C28BB78278B7512 /* Pods-SaveNSpend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SaveNSpend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dheerajmukati.com.SaveNSpend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaveNSpend-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -543,10 +567,12 @@
 			baseConfigurationReference = F7447143FFB20308198D6092 /* Pods-SaveNSpend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SaveNSpend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dheerajmukati.com.SaveNSpend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaveNSpend-Bridging-Header.h";
 			};
 			name = Release;
 		};

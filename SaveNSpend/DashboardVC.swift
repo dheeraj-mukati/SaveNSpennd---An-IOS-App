@@ -15,10 +15,21 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var bankAccountsContentView: UIView!
     
     @IBOutlet weak var scrollView: UIScrollView!
-    let realm = try! Realm()
     
+    @IBOutlet weak var openMenuItemBar: UIBarButtonItem!
+    
+    let realm = try! Realm()
+    let bankAccountUIViewWidth = CGFloat(150)
+    
+//    let bankAccountUIViewColor = [UIColor.blueColor(),UIColor.redColor(),
+//                                  UIColor.purpleColor(),UIColor.brownColor(),
+//                                    UIColor.orangeColor(),UIColor.greenColor()]
     override func viewDidLoad() {
         
+        openMenuItemBar.target = self.revealViewController()
+        openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         bankAccountMainUIView.layer.cornerRadius = 5
         bankAccountsContentView.layer.cornerRadius = 5
         bankAccountsContentView.backgroundColor = UIColor.lightGrayColor()
@@ -27,34 +38,43 @@ class DashboardVC: UIViewController {
         print(accounts.count)
         if accounts.count > 0 {
         
-            var bankAccountCount = 0
+            var bankAccountCount = CGFloat(0)
             var fisrAccountFlag = true
+            let bankAccountUIViewLeftMargin = CGFloat(8)
+            
+            var totalWidth = CGFloat(0)
             for account in accounts {
                 var bankAccountUIView:UIView
                 if fisrAccountFlag {
-                    bankAccountUIView = createBankAccountUIView(CGFloat(bankAccountCount * 5))
+                    bankAccountUIView = createBankAccountUIView(CGFloat(bankAccountCount * bankAccountUIViewLeftMargin))
                     fisrAccountFlag = false
                 }else{
-                    bankAccountUIView = createBankAccountUIView(CGFloat((bankAccountCount * 150) + (bankAccountCount * 5)))
+                    bankAccountUIView = createBankAccountUIView(CGFloat((bankAccountCount * bankAccountUIViewWidth) + (bankAccountCount * bankAccountUIViewLeftMargin)))
                 }
+                
                 createBankAccountNameUILabel(bankAccountUIView, bankName: account.bankName)
                 createAccountBalanceUILabel(bankAccountUIView, balance: String(account.balance))
                 bankAccountCount += 1
+                
+                totalWidth = totalWidth + bankAccountUIView.frame.width
             }
+            print("totalWidth: \(totalWidth)")
         }
         print("scrol width: \(scrollView.contentSize.width)")
         print("scrol width: \(bankAccountsContentView.frame.width)")
         print("view width: \(view.frame.width)")
-        scrollView.contentSize = bankAccountsContentView.frame.size
+        //scrollView.contentSize = bankAccountsContentView.frame.size
         print("scrol width1: \(scrollView.contentSize.width)")
         print("scrol width1: \(bankAccountsContentView.frame.width)")
         print("view width1: \(view.frame.width)")
     }
     
+    
+    
     func createBankAccountUIView(leftConstant: CGFloat) -> UIView {
         
         let customView = UIView()
-        customView.backgroundColor = UIColor.blueColor()
+        customView.backgroundColor = getRandomColor()
         customView.translatesAutoresizingMaskIntoConstraints = false
         customView.layer.cornerRadius = 5
         bankAccountsContentView.addSubview(customView)
@@ -68,7 +88,7 @@ class DashboardVC: UIViewController {
         let leftConstraint = NSLayoutConstraint(item: customView, attribute: .Left, relatedBy: .Equal, toItem: bankAccountsContentView, attribute: .Left, multiplier: 1, constant: leftConstant)
         bankAccountsContentView.addConstraint(leftConstraint)
         
-        let widthConstraint = NSLayoutConstraint(item: customView, attribute: .Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 150)
+        let widthConstraint = NSLayoutConstraint(item: customView, attribute: .Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: bankAccountUIViewWidth)
         bankAccountsContentView.addConstraint(widthConstraint)
         
         return customView
@@ -111,5 +131,14 @@ class DashboardVC: UIViewController {
         
         bankAccountUIView.addConstraint(xConstraint)
         bankAccountUIView.addConstraint(yConstraint)
+    }
+    
+    func getRandomColor() -> UIColor{
+        
+        let randomRed:CGFloat = CGFloat(drand48())
+        let randomGreen:CGFloat = CGFloat(drand48())
+        let randomBlue:CGFloat = CGFloat(drand48())
+        
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
 }
