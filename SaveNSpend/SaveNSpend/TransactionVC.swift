@@ -17,12 +17,17 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBOutlet weak var expenseAmountTotal: UILabel!
     
+    @IBOutlet weak var openMenuItemBar: UIBarButtonItem!
+    
     let realm = try! Realm()
     
     var transactions = [Transaction]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        openMenuItemBar.target = self.revealViewController()
+        openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
@@ -33,6 +38,12 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         setTotalIncomeAndExpenseAmount()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        transactions = Array(realm.objects(Transaction))
+        transactionTableView.reloadData()
+        setTotalIncomeAndExpenseAmount()
+    }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1

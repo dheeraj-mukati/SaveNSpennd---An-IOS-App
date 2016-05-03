@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol AccountAddedDelegate{
-    func accountAdded(bankName:String, isAccountEdited:Bool)
+    func accountAdded(bankAccount:Account, editedSegmentControlIndex:Int)
 }
 class AddAccountVC: UIViewController {
     
@@ -25,6 +25,8 @@ class AddAccountVC: UIViewController {
      var delegate:AccountAddedDelegate? = nil
     
     var bankAccountToBeEdit: Account!
+    
+    var editedSegmentControlIndex = -1
     
     // Get the default Realm
     let realm = try! Realm()
@@ -51,23 +53,25 @@ class AddAccountVC: UIViewController {
             showErrorAlert()
         }else{
             let account = Account()
+            account.bankName = accountName.text!
+            account.balance = Double(balance.text!)!
+            
             if bankAccountToBeEdit != nil {
-                delegate?.accountAdded(accountName.text!, isAccountEdited: true)
                 account.id = bankAccountToBeEdit.id
             }else{
-                delegate?.accountAdded(accountName.text!, isAccountEdited: false)
                 account.id = account.incrementaID()
             }
-            account.bankName = accountName.text!
-            account.balance = Int(balance.text!)!
             
             // Add to the Realm inside a transaction
             try! realm.write {
                 realm.add(account, update: true)
             }
             
-            print("Object saved")
-            print(account.id)
+            if bankAccountToBeEdit != nil {
+                delegate?.accountAdded(account, editedSegmentControlIndex: editedSegmentControlIndex)
+            }else{
+                delegate?.accountAdded(account, editedSegmentControlIndex: editedSegmentControlIndex)
+            }
             
             if (delegate != nil){
                 showAccountsVC()

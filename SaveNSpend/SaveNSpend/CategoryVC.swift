@@ -14,18 +14,26 @@ class CategoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var categoryType: UISegmentedControl!
     @IBOutlet weak var categoryData: UITableView!
     
-    
+    @IBOutlet weak var openMenuItemBar: UIBarButtonItem!
     let realm = try! Realm()
     var categories: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        openMenuItemBar.target = self.revealViewController()
+        openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
+        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        shoeCategoryData()
+        getCategoryData()
         
     }
 
+    override func viewDidAppear(animated: Bool) {
+        print("inside did appear")
+        getCategoryData()
+        categoryData.reloadData()
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return categories.count
@@ -57,16 +65,16 @@ class CategoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         category.name = selectedCategory
         category.type = categoryType.titleForSegmentAtIndex(categoryType.selectedSegmentIndex)!
         addCategoryVC.categoryToBeEdit = category
-        self.presentViewController(addCategoryVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(addCategoryVC, animated: true)
     }
     
     @IBAction func changeCategoryData(sender: UISegmentedControl) {
 
-        shoeCategoryData()
+        getCategoryData()
         categoryData.reloadData()
     }
     
-    func shoeCategoryData(){
+    func getCategoryData(){
     
         let SelectedCategoryType = categoryType.titleForSegmentAtIndex(categoryType.selectedSegmentIndex)!
         print(SelectedCategoryType)

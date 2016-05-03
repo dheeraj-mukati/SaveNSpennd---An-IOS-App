@@ -14,7 +14,7 @@ class Account: Object {
     // MARK: Properties
     dynamic var id = 0
     dynamic var bankName = ""
-    dynamic var balance = 0
+    dynamic var balance = 0.0
     
     override static func primaryKey() -> String? {
         return "id"

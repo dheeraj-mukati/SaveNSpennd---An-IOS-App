@@ -94,9 +94,10 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     
     func showTransactionVC(){
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let transactionVC = storyboard.instantiateViewControllerWithIdentifier("transaction_strb_id") as! TransactionVC
-        self.presentViewController(transactionVC, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let transactionVC = storyboard.instantiateViewControllerWithIdentifier("transaction_strb_id") as! TransactionVC
+//        self.presentViewController(transactionVC, animated: true, completion: nil)
     }
     
     

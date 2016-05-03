@@ -28,6 +28,7 @@
 		9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA31CC87DB50084606A /* ViewController.swift */; };
 		9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */; };
 		9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */; };
+		9EE849A51CD83A3A00339FFD /* menu_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EE849A41CD83A3A00339FFD /* menu_filled.png */; };
 		C8C1D117BCB6A71219AA0696 /* Pods_SaveNSpendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EE07ACD07AEA78781442C /* Pods_SaveNSpendTests.framework */; };
 		EDA8A236EB60049292506E9C /* Pods_SaveNSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		9EE3FAA31CC87DB50084606A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controller/ViewController.swift"; sourceTree = "<group>"; };
 		9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryVC.swift; sourceTree = "<group>"; };
+		9EE849A41CD83A3A00339FFD /* menu_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_filled.png; sourceTree = "<group>"; };
 		F7447143FFB20308198D6092 /* Pods-SaveNSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 		9E9C75E91CB5B5D1003BC991 /* SaveNSpend */ = {
 			isa = PBXGroup;
 			children = (
+				9EE849A41CD83A3A00339FFD /* menu_filled.png */,
 				9EE3FAA51CC87DC30084606A /* View Controller */,
 				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
@@ -293,6 +296,7 @@
 			files = (
 				9E9C75F51CB5B5D1003BC991 /* LaunchScreen.storyboard in Resources */,
 				9E4B01FF1CC550FA00614392 /* edit.png in Resources */,
+				9EE849A51CD83A3A00339FFD /* menu_filled.png in Resources */,
 				9E9C75F21CB5B5D1003BC991 /* Assets.xcassets in Resources */,
 				9E9C75F01CB5B5D1003BC991 /* Main.storyboard in Resources */,
 			);

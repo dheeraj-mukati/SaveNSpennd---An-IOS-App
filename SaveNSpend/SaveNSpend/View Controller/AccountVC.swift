@@ -18,6 +18,8 @@ class AccountVC: UIViewController, AccountAddedDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var openMenuItemBar: UIBarButtonItem!
+    
     var customSC: UISegmentedControl!
     var accountBalanceLabel: UILabel!
     var addAccountUILabel: UILabel!
@@ -35,7 +37,9 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         //            try! NSFileManager().removeItemAtPath(path)
         //        }
         
-        print("accounts.count: \(accounts)")
+        openMenuItemBar.target = self.revealViewController()
+        openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
+        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         activityBar.hidden = true
         accounts = realm.objects(Account)
@@ -46,13 +50,22 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         }
     }
     
-    func accountAdded(bankName:String, isAccountEdited:Bool) {
-    
+    func accountAdded(bankAccount: Account, editedSegmentControlIndex: Int) {
         if accounts.count == 1 {
-            createSubViews()
-            addAccountUILabel.removeFromSuperview()
+            if editedSegmentControlIndex == -1 {
+                createSubViews()
+                addAccountUILabel.removeFromSuperview()
+            }else{
+                customSC.setTitle(bankAccount.bankName, forSegmentAtIndex: editedSegmentControlIndex)
+                accountBalanceLabel.text = "$" + String(bankAccount.balance)
+            }
         } else {
-            customSC.insertSegmentWithTitle(bankName, atIndex: accounts.count, animated: true)
+            if editedSegmentControlIndex == -1 {
+                customSC.insertSegmentWithTitle(bankAccount.bankName, atIndex: accounts.count, animated: true)
+            }else{
+                customSC.setTitle(bankAccount.bankName, forSegmentAtIndex: editedSegmentControlIndex)
+                accountBalanceLabel.text = "$" + String(bankAccount.balance)
+            }
             scrollView.contentSize = customSC.frame.size // updating scrolView width
         }
     }
@@ -243,6 +256,7 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         let account = Account()
         account.bankName = selectedBankAcount
         addAccountVC.bankAccountToBeEdit = account
+        addAccountVC.editedSegmentControlIndex = customSC.selectedSegmentIndex
         addAccountVC.delegate = self
         self.navigationController?.pushViewController(addAccountVC, animated: true)
     }

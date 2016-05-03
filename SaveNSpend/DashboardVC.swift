@@ -18,6 +18,12 @@ class DashboardVC: UIViewController {
     
     @IBOutlet weak var openMenuItemBar: UIBarButtonItem!
     
+    @IBOutlet weak var cashFlowUIView: UIView!
+    
+    @IBOutlet weak var totalSpentBarUIView: UIView!
+    
+    @IBOutlet weak var totalEarnedBarUIView: UIView!
+    
     let realm = try! Realm()
     let bankAccountUIViewWidth = CGFloat(150)
     
@@ -32,7 +38,10 @@ class DashboardVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         bankAccountMainUIView.layer.cornerRadius = 5
         bankAccountsContentView.layer.cornerRadius = 5
-        bankAccountsContentView.backgroundColor = UIColor.lightGrayColor()
+        cashFlowUIView.layer.cornerRadius = 5
+        totalSpentBarUIView.layer.cornerRadius = 5
+        totalEarnedBarUIView.layer.cornerRadius = 5
+        //bankAccountsContentView.backgroundColor = UIColor.lightGrayColor()
         
         let accounts = Array(realm.objects(Account))
         print(accounts.count)
