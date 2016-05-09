@@ -11,6 +11,13 @@
 		9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */; };
 		9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */; };
 		9E4B01FF1CC550FA00614392 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B01FE1CC550FA00614392 /* edit.png */; };
+		9E6DB6C41CDFCB7000E7BABF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */; };
+		9E6DB6C51CDFCE4400E7BABF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */; };
+		9E6DB6C61CDFCE4400E7BABF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E6DB6CB1CDFFD6400E7BABF /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CA1CDFFD6400E7BABF /* back.png */; };
+		9E6DB6CD1CDFFD7D00E7BABF /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CC1CDFFD7D00E7BABF /* forward.png */; };
+		9E6DB6D01CE037DF00E7BABF /* utilities in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CF1CE037DF00E7BABF /* utilities */; };
+		9E6DB6D31CE039E900E7BABF /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6D21CE039E900E7BABF /* DateUtils.swift */; };
 		9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */; };
 		9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */; };
 		9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9619531CD416D300FAFC61 /* DashboardVC.swift */; };
@@ -34,6 +41,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9E6DB6BC1CDFCAC600E7BABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		9E6DB6BE1CDFCAC600E7BABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		9E6DB6C01CDFCAC600E7BABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		9E6DB6C21CDFCAC600E7BABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		9E6DB6C71CDFCE4400E7BABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		9E9C75FC1CB5B5D2003BC991 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9E9C75DF1CB5B5D1003BC991 /* Project object */;
@@ -42,6 +84,20 @@
 			remoteInfo = SaveNSpend;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9E6DB6C91CDFCE4500E7BABF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9E6DB6C61CDFCE4400E7BABF /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0B2EE07ACD07AEA78781442C /* Pods_SaveNSpendTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveNSpendTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +109,11 @@
 		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		9E6DB6CA1CDFFD6400E7BABF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		9E6DB6CC1CDFFD7D00E7BABF /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
+		9E6DB6CF1CE037DF00E7BABF /* utilities */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = utilities; sourceTree = "<group>"; };
+		9E6DB6D21CE039E900E7BABF /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = utilities/DateUtils.swift; sourceTree = "<group>"; };
 		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -85,6 +146,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6DB6C51CDFCE4400E7BABF /* Charts.framework in Frameworks */,
+				9E6DB6C41CDFCB7000E7BABF /* Charts.framework in Frameworks */,
 				EDA8A236EB60049292506E9C /* Pods_SaveNSpend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +170,26 @@
 				0B2EE07ACD07AEA78781442C /* Pods_SaveNSpendTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E6DB6B61CDFCAC600E7BABF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */,
+				9E6DB6BF1CDFCAC600E7BABF /* Charts.framework */,
+				9E6DB6C11CDFCAC600E7BABF /* Charts.framework */,
+				9E6DB6C31CDFCAC600E7BABF /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E6DB6CE1CE0376800E7BABF /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9E6DB6D21CE039E900E7BABF /* DateUtils.swift */,
+				9E6DB6CF1CE037DF00E7BABF /* utilities */,
+			);
+			name = utilities;
 			sourceTree = "<group>";
 		};
 		9E86E36C1CD6ACB9004F2394 /* Supporting Files */ = {
@@ -143,7 +226,11 @@
 		9E9C75E91CB5B5D1003BC991 /* SaveNSpend */ = {
 			isa = PBXGroup;
 			children = (
+				9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */,
 				9EE849A41CD83A3A00339FFD /* menu_filled.png */,
+				9E6DB6CA1CDFFD6400E7BABF /* back.png */,
+				9E6DB6CC1CDFFD7D00E7BABF /* forward.png */,
+				9E6DB6CE1CE0376800E7BABF /* utilities */,
 				9EE3FAA51CC87DC30084606A /* View Controller */,
 				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
@@ -218,10 +305,12 @@
 				9E9C75E51CB5B5D1003BC991 /* Resources */,
 				544F52A29F91F57C2F618CB8 /* Embed Pods Frameworks */,
 				8F654821ED0C8253FBCC6779 /* Copy Pods Resources */,
+				9E6DB6C91CDFCE4500E7BABF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9E6DB6C81CDFCE4400E7BABF /* PBXTargetDependency */,
 			);
 			name = SaveNSpend;
 			productName = SaveNSpend;
@@ -281,6 +370,12 @@
 			mainGroup = 9E9C75DE1CB5B5D1003BC991;
 			productRefGroup = 9E9C75E81CB5B5D1003BC991 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9E6DB6B61CDFCAC600E7BABF /* Products */;
+					ProjectRef = 9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9E9C75E61CB5B5D1003BC991 /* SaveNSpend */,
@@ -289,13 +384,46 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 9E6DB6BC1CDFCAC600E7BABF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E6DB6BF1CDFCAC600E7BABF /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 9E6DB6BE1CDFCAC600E7BABF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E6DB6C11CDFCAC600E7BABF /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 9E6DB6C01CDFCAC600E7BABF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E6DB6C31CDFCAC600E7BABF /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 9E6DB6C21CDFCAC600E7BABF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		9E9C75E51CB5B5D1003BC991 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6DB6CD1CDFFD7D00E7BABF /* forward.png in Resources */,
 				9E9C75F51CB5B5D1003BC991 /* LaunchScreen.storyboard in Resources */,
 				9E4B01FF1CC550FA00614392 /* edit.png in Resources */,
+				9E6DB6CB1CDFFD6400E7BABF /* back.png in Resources */,
 				9EE849A51CD83A3A00339FFD /* menu_filled.png in Resources */,
 				9E9C75F21CB5B5D1003BC991 /* Assets.xcassets in Resources */,
 				9E9C75F01CB5B5D1003BC991 /* Main.storyboard in Resources */,
@@ -422,6 +550,8 @@
 				9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */,
 				9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */,
 				9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */,
+				9E6DB6D31CE039E900E7BABF /* DateUtils.swift in Sources */,
+				9E6DB6D01CE037DF00E7BABF /* utilities in Sources */,
 				9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */,
 				9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */,
 				9ED5BD6D1CB5BE19004BC933 /* Category.swift in Sources */,
@@ -439,6 +569,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9E6DB6C81CDFCE4400E7BABF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 9E6DB6C71CDFCE4400E7BABF /* PBXContainerItemProxy */;
+		};
 		9E9C75FD1CB5B5D2003BC991 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9E9C75E61CB5B5D1003BC991 /* SaveNSpend */;
@@ -557,6 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SaveNSpend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dheerajmukati.com.SaveNSpend;
@@ -572,6 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SaveNSpend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dheerajmukati.com.SaveNSpend;

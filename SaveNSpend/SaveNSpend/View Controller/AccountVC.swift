@@ -157,6 +157,7 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         customView.backgroundColor = UIColor.lightGrayColor()
         customView.translatesAutoresizingMaskIntoConstraints = false
         customView.layer.cornerRadius = 5
+        customView.layer.borderWidth = 0.5
         view.addSubview(customView)
         
         let horizontalConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)

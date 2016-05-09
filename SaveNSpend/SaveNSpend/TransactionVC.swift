@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var transactionTableView: UITableView!
@@ -19,9 +20,15 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBOutlet weak var openMenuItemBar: UIBarButtonItem!
     
+    @IBOutlet weak var transactionMonth: UILabel!
+    
     let realm = try! Realm()
     
     var transactions = [Transaction]()
+    
+    var currentDate = NSDate()
+    
+    let dateUtils = DateUtils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +41,14 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
         
-        transactions = Array(realm.objects(Transaction))
+        setTransactionMonth()
+        setTransactions(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
         setTotalIncomeAndExpenseAmount()
     }
     
     override func viewDidAppear(animated: Bool) {
         
-        transactions = Array(realm.objects(Transaction))
+        setTransactions(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
         transactionTableView.reloadData()
         setTotalIncomeAndExpenseAmount()
     }
@@ -88,11 +96,50 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         expenseAmountTotal.text = "$" + String(totalExpense)
     }
     
+    private func setTransactions(startDate: NSDate, endDate: NSDate){
+    
+        //filter("timestamp > %@ AND timestamp <= %@", startDate, endDate)
+        //let predicate = NSPredicate(format: "date>= \(startDate) AND date<= \(endDate)")
+        
+        transactions = Array(realm.objects(Transaction).filter("date > %@ AND date <= %@", startDate, endDate))
+    }
     private func formatDate(date:NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
         return dateFormatter.stringFromDate(date)
     }
+    
+    @IBAction func nextMonthTransactions() {
+        
+        currentDate = dateUtils.dateByAddingMonths(1, currentDate: currentDate)!
+        setTransactionMonth()
+        setTransactions(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
+        transactionTableView.reloadData()
+        setTotalIncomeAndExpenseAmount()
+    }
+    
+    @IBAction func previousMonthTransactions() {
+        
+        currentDate = dateUtils.dateByAddingMonths(-1, currentDate: currentDate)!
+        setTransactionMonth()
+        setTransactions(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
+        transactionTableView.reloadData()
+        setTotalIncomeAndExpenseAmount()
+    }
+    
+    private func setTransactionMonth(){
+    
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: currentDate)
+        
+        let year =  components.year
+        let monthName = NSDateFormatter().monthSymbols[components.month - 1]
+        
+        transactionMonth.text = monthName + " " + String(year)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

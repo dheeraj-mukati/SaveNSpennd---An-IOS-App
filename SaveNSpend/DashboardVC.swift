@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Charts
 
 class DashboardVC: UIViewController {
 
@@ -24,12 +25,18 @@ class DashboardVC: UIViewController {
     
     @IBOutlet weak var totalEarnedBarUIView: UIView!
     
+    @IBOutlet weak var pieChartView: PieChartView!
+    
+    @IBOutlet weak var transactionsMonth: UILabel!
+    
+    let dateUtils = DateUtils()
+    var currentDate = NSDate()
+    
+    var transactions = [Transaction]()
+    
     let realm = try! Realm()
     let bankAccountUIViewWidth = CGFloat(150)
-    
-//    let bankAccountUIViewColor = [UIColor.blueColor(),UIColor.redColor(),
-//                                  UIColor.purpleColor(),UIColor.brownColor(),
-//                                    UIColor.orangeColor(),UIColor.greenColor()]
+
     override func viewDidLoad() {
         
         openMenuItemBar.target = self.revealViewController()
@@ -76,9 +83,10 @@ class DashboardVC: UIViewController {
         print("scrol width1: \(scrollView.contentSize.width)")
         print("scrol width1: \(bankAccountsContentView.frame.width)")
         print("view width1: \(view.frame.width)")
+        
+        
+        setPieChartData(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
     }
-    
-    
     
     func createBankAccountUIView(leftConstant: CGFloat) -> UIView {
         
@@ -149,5 +157,77 @@ class DashboardVC: UIViewController {
         let randomBlue:CGFloat = CGFloat(drand48())
         
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+    }
+    
+    @IBAction func nextMonthTransactions() {
+        
+        currentDate = dateUtils.dateByAddingMonths(1, currentDate: currentDate)!
+        setTransactionMonth()
+        setPieChartData(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
+    }
+    
+    @IBAction func previousMonthTransactions(sender: AnyObject) {
+        
+        currentDate = dateUtils.dateByAddingMonths(-1, currentDate: currentDate)!
+        setTransactionMonth()
+        setPieChartData(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
+    }
+    
+    func setPieChartData(startDate: NSDate, endDate: NSDate){
+        
+        let categoryType = "Expense"
+        transactions = Array(realm.objects(Transaction).filter("date > %@ AND date <= %@", startDate, endDate).filter("category.type = %@",categoryType))
+        
+        //let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+        //let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        
+        var categories = [String]()
+        var transactionsAmount = [Double]()
+        
+        for transaction in transactions {
+            categories.append((transaction.category?.name)!)
+            transactionsAmount.append(transaction.amount)
+        }
+        setChart(categories, values: transactionsAmount)
+        
+        setTransactionMonth()
+    }
+    
+    private func setTransactionMonth(){
+        
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: currentDate)
+        
+        let year =  components.year
+        let monthName = NSDateFormatter().monthSymbols[components.month - 1]
+        
+        transactionsMonth.text = monthName + " " + String(year)
+    }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<transactions.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
+        
+        var colors: [UIColor] = []
+        
+        for i in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
     }
 }
