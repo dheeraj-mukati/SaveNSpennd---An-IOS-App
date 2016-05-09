@@ -154,7 +154,7 @@ class AccountVC: UIViewController, AccountAddedDelegate {
     func createCustomView() -> UIView {
         
         let customView = UIView()
-        customView.backgroundColor = UIColor.lightGrayColor()
+        customView.backgroundColor = UIColor.whiteColor()
         customView.translatesAutoresizingMaskIntoConstraints = false
         customView.layer.cornerRadius = 5
         customView.layer.borderWidth = 0.5

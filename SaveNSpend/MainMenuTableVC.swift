@@ -36,18 +36,30 @@ class MainMenuTableVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return mainMenuArray.count
+        return mainMenuArray.count + 1
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(mainMenuArray[indexPath.row], forIndexPath: indexPath)
-
-        cell.textLabel?.text = mainMenuArray[indexPath.row]
-
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Main Cell", forIndexPath: indexPath) as! MainMenuUITableViewCell
+            cell.appName.text = "SaveNSpend"
+            //cell.backgroundColor = UIColor.purpleColor()
+            return cell
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier(mainMenuArray[indexPath.row - 1], forIndexPath: indexPath)
+            
+        cell.textLabel?.text = mainMenuArray[indexPath.row - 1]
         return cell
     }
  
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        if indexPath.row == 0 {
+            return 200.0
+        }
+        return 50.0
+    }
 
     /*
     // Override to support conditional editing of the table view.

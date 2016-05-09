@@ -65,10 +65,8 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         // Add to the Realm inside a transaction
         try! realm.write {
             realm.add(transaction, update: true)
+            updateBankBalance(bankAccount, transactionAmount: Double(transactionAmount.text!)!, categoryType: category.type)
         }
-        
-        print(transaction)
-        
         showTransactionVC()
     }
     
@@ -76,13 +74,13 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         showTransactionVC()
         
     }
+    
     @IBAction func transactionTypeChanged(sender: UISegmentedControl) {
         updateCategoryTypeData()
         category.reloadComponent(0)
     }
     
-    
-    func updateCategoryTypeData() {
+    private func updateCategoryTypeData() {
         
         let selectedTransactionType = transactionType.titleForSegmentAtIndex(transactionType.selectedSegmentIndex)!
         
@@ -92,12 +90,18 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         bankAccounts = realm.objects(Account).valueForKey("bankName") as! [String]
     }
     
+    private func updateBankBalance(bankAccount: Account, transactionAmount: Double, categoryType: String){
+
+        if categoryType == "Expense" {
+            bankAccount.balance = bankAccount.balance - transactionAmount
+        }else {
+            bankAccount.balance = bankAccount.balance + transactionAmount
+        }
+        realm.add(bankAccount, update: true)
+    }
+    
     func showTransactionVC(){
-        
         self.navigationController?.popViewControllerAnimated(true)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let transactionVC = storyboard.instantiateViewControllerWithIdentifier("transaction_strb_id") as! TransactionVC
-//        self.presentViewController(transactionVC, animated: true, completion: nil)
     }
     
     
@@ -126,14 +130,4 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         }
         return ""
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

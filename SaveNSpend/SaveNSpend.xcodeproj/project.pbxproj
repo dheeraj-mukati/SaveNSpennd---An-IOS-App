@@ -10,6 +10,8 @@
 		9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */; };
 		9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */; };
 		9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */; };
+		9E2526951CE0F92F002FA798 /* MainMenuUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */; };
+		9E25269A1CE101BD002FA798 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2526991CE101BD002FA798 /* home.png */; };
 		9E4B01FF1CC550FA00614392 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4B01FE1CC550FA00614392 /* edit.png */; };
 		9E6DB6C41CDFCB7000E7BABF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */; };
 		9E6DB6C51CDFCE4400E7BABF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */; };
@@ -108,6 +110,8 @@
 		9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
 		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuUITableViewCell.swift; sourceTree = "<group>"; };
+		9E2526991CE101BD002FA798 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
 		9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		9E6DB6CA1CDFFD6400E7BABF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 			children = (
 				9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */,
 				9EE849A41CD83A3A00339FFD /* menu_filled.png */,
+				9E2526991CE101BD002FA798 /* home.png */,
 				9E6DB6CA1CDFFD6400E7BABF /* back.png */,
 				9E6DB6CC1CDFFD7D00E7BABF /* forward.png */,
 				9E6DB6CE1CE0376800E7BABF /* utilities */,
@@ -235,6 +240,7 @@
 				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
+				9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */,
 				9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */,
 				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
 				9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */,
@@ -424,6 +430,7 @@
 				9E9C75F51CB5B5D1003BC991 /* LaunchScreen.storyboard in Resources */,
 				9E4B01FF1CC550FA00614392 /* edit.png in Resources */,
 				9E6DB6CB1CDFFD6400E7BABF /* back.png in Resources */,
+				9E25269A1CE101BD002FA798 /* home.png in Resources */,
 				9EE849A51CD83A3A00339FFD /* menu_filled.png in Resources */,
 				9E9C75F21CB5B5D1003BC991 /* Assets.xcassets in Resources */,
 				9E9C75F01CB5B5D1003BC991 /* Main.storyboard in Resources */,
@@ -544,6 +551,7 @@
 				9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */,
 				9EE3FAA01CC87D450084606A /* AccountVC.swift in Sources */,
 				9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */,
+				9E2526951CE0F92F002FA798 /* MainMenuUITableViewCell.swift in Sources */,
 				9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */,
 				9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */,
 				9ED5BD6F1CB5C3FB004BC933 /* Transaction.swift in Sources */,
