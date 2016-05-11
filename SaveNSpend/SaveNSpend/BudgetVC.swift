@@ -29,8 +29,9 @@ class BudgetVC: UIViewController {
         openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
+
         createBudgets()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,44 +43,68 @@ class BudgetVC: UIViewController {
     }
     
     func createBudgets(){
-    
+        
         let date = NSDate()
         budgets = Array(realm.objects(Budget).filter("date > %@ AND date <= %@", dateUtils.startOfMonth(date)!, dateUtils.endOfMonth(date)!))
         
         addBudgetUILabel.text = ""
         
         if budgets.count > 0 {
+            
+            var toalLimitOfMonth = 0.0
+            var totalTransactionAmoutOfMonth = 0.0
+            
             var budgetCount = CGFloat(1)
             for budget in budgets {
                 
-                var isLimitCrossed = false
-                var isTotalReachedNearToLimit = false
-                let customBudgetUIView = createBudgetsUIView((budgetCount * (topConstraints + customBdgetsUIViewHeight)) - (customBdgetsUIViewHeight))
+                toalLimitOfMonth = toalLimitOfMonth + budget.limit
+                let customBudgetUIView = createBudgetsUIView((budgetCount * (topConstraints + customBdgetsUIViewHeight)))
                 let totalTransactionAmount = getTotalTransactionAmount(budget.category!)
-                careateCategoryLabelInBudgetUIView(customBudgetUIView, categoryName: (budget.category?.name)!)
+                totalTransactionAmoutOfMonth = totalTransactionAmoutOfMonth + totalTransactionAmount
                 
-                var leftLimitLabelText = "$"
-                if totalTransactionAmount <= budget.limit {
-                    leftLimitLabelText = leftLimitLabelText + String(budget.limit - totalTransactionAmount) + " Left"
-                }else{
-                    isLimitCrossed = true
-                    leftLimitLabelText = leftLimitLabelText + String(totalTransactionAmount - budget.limit) + " Over"
-                }
-                
-                if totalTransactionAmount > ((budget.limit) * (80/100)){
-                    isTotalReachedNearToLimit = true
-                }
-                createLeftLimitUILabel(customBudgetUIView, leftLimit: leftLimitLabelText)
-                
-                createBudgetProgressBar(customBudgetUIView, budget: budget, totalTransactionAmount: Float(totalTransactionAmount),isLimitCrossed: isLimitCrossed,isTotalReachedNearToLimit: isTotalReachedNearToLimit)
-                
-                let limitLabelText = "$" + String(totalTransactionAmount) + " of " + "$" + String(budget.limit)
-                createLimitUILabel(customBudgetUIView, limit: limitLabelText)
+                createBudgetsElement(customBudgetUIView, progressBarLabel: (budget.category?.name)!, totalTransactionAmount: totalTransactionAmount, limit: budget.limit)
                 budgetCount += 1
             }
+            
+            let calendar = NSCalendar.currentCalendar()
+            let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+            
+            let year =  components.year
+            let monthName = NSDateFormatter().monthSymbols[components.month - 1]
+            let progressBarLabel = monthName + " " + String(year)
+            
+            let customBudgetUIView = createMonthBudgetUIView(CGFloat(0))
+            createBudgetsElement(customBudgetUIView, progressBarLabel: progressBarLabel, totalTransactionAmount: totalTransactionAmoutOfMonth, limit: toalLimitOfMonth)
+            
         } else {
             createNoBudgetCustomLabel()
         }
+    }
+    
+    func createBudgetsElement(customBudgetUIView: UIView, progressBarLabel: String, totalTransactionAmount: Double, limit:Double){
+    
+        careateCategoryLabelInBudgetUIView(customBudgetUIView, categoryName: progressBarLabel)
+        
+        var isLimitCrossed = false
+        var isTotalReachedNearToLimit = false
+        
+        var leftLimitLabelText = "$"
+        if totalTransactionAmount <= limit {
+            leftLimitLabelText = leftLimitLabelText + String(limit - totalTransactionAmount) + " Left"
+        }else{
+            isLimitCrossed = true
+            leftLimitLabelText = leftLimitLabelText + String(totalTransactionAmount - limit) + " Over"
+        }
+        
+        if totalTransactionAmount > ((limit) * (80/100)){
+            isTotalReachedNearToLimit = true
+        }
+        createLeftLimitUILabel(customBudgetUIView, leftLimit: leftLimitLabelText)
+        
+        createBudgetProgressBar(customBudgetUIView, limit: limit, totalTransactionAmount: Float(totalTransactionAmount),isLimitCrossed: isLimitCrossed,isTotalReachedNearToLimit: isTotalReachedNearToLimit)
+        
+        let limitLabelText = "$" + String(totalTransactionAmount) + " of " + "$" + String(limit)
+        createLimitUILabel(customBudgetUIView, limit: limitLabelText)
     }
     
     func getTotalTransactionAmount(category: Category) -> Double{
@@ -117,6 +142,33 @@ class BudgetVC: UIViewController {
         self.view.addConstraint(yConstraint)
     }
     
+    func createMonthBudgetUIView(topConstraint: CGFloat) -> UIView{
+        
+        let customView = UIView()
+        customView.backgroundColor = UIColor.whiteColor()
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        //customView.layer.cornerRadius = 5
+        customView.layer.borderWidth = 0.5
+        contentView.addSubview(customView)
+        
+        let horizontalConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        contentView.addConstraint(horizontalConstraint)
+        
+        let topConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: topConstraint)
+        contentView.addConstraint(topConstraint)
+        
+        let leftConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0)
+        contentView.addConstraint(leftConstraint)
+        
+        let rightConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+        contentView.addConstraint(rightConstraint)
+        
+        let heightConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: customBdgetsUIViewHeight)
+        contentView.addConstraint(heightConstraint)
+        
+        return customView
+    }
+    
     func createBudgetsUIView(topConstraint: CGFloat) -> UIView{
 
         let customView = UIView()
@@ -132,10 +184,10 @@ class BudgetVC: UIViewController {
         let topConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: topConstraint)
         contentView.addConstraint(topConstraint)
         
-        let leftConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
+        let leftConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 15)
         contentView.addConstraint(leftConstraint)
         
-        let rightConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -10)
+        let rightConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: contentView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -15)
         contentView.addConstraint(rightConstraint)
         
         let heightConstraint = NSLayoutConstraint(item: customView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: customBdgetsUIViewHeight)
@@ -144,7 +196,7 @@ class BudgetVC: UIViewController {
         return customView
     }
     
-    func createBudgetProgressBar(customBudgetUIView : UIView, budget: Budget, totalTransactionAmount: Float,isLimitCrossed : Bool,isTotalReachedNearToLimit :Bool){
+    func createBudgetProgressBar(customBudgetUIView : UIView, limit: Double, totalTransactionAmount: Float,isLimitCrossed : Bool,isTotalReachedNearToLimit :Bool){
         // Create Progress View Control
         let progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.Default)
         progressView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,7 +212,7 @@ class BudgetVC: UIViewController {
             progressView.tintColor = UIColor(hue: 0.0222, saturation: 0.8, brightness: 0.97, alpha: 1.0) /* #f74b31 */
         }
         
-        let ratio = Float(totalTransactionAmount) / Float(budget.limit)
+        let ratio = Float(totalTransactionAmount) / Float(limit)
         progressView.setProgress(ratio, animated: true)
         
         let topConstraint = NSLayoutConstraint(item: progressView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: customBudgetUIView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 35)

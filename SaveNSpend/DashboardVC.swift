@@ -45,6 +45,19 @@ class DashboardVC: UIViewController {
     
     @IBOutlet weak var noTransactionLabelInPieChartSection: UILabel!
     
+    // MARK Properties:- Budget Propertes
+    @IBOutlet weak var budgetMonthLabel: UILabel!
+    
+    @IBOutlet weak var budgetProgressView: UIProgressView!
+    
+    @IBOutlet weak var budgetLimitInfoLabel: UILabel!
+    
+    @IBOutlet weak var budgetContentView: UIView!
+    
+    @IBOutlet weak var budgetLeftLimitInfoLabel: UILabel!
+    
+    @IBOutlet weak var noBudgetsLabel: UILabel!
+    
     let currencySymbol = "$"
     
     let dateUtils = DateUtils()
@@ -132,6 +145,9 @@ class DashboardVC: UIViewController {
         pieChartView.drawSliceTextEnabled = false
         pieChartView.noDataText = "No transactions in this month"
         setPieChartData(dateUtils.startOfMonth(currentDate)!, endDate: dateUtils.endOfMonth(currentDate)!)
+        
+        //Setting budgets section information
+        setBudgetValues()
     }
     
     func createBankAccountUIView(leftConstraint: CGFloat) -> UIView {
@@ -239,15 +255,21 @@ class DashboardVC: UIViewController {
     }
     
     private func setTransactionMonth(){
+        
+        
+        transactionsMonth.text = getMonthAndYearString(currentDate)
+    }
+    
+    func getMonthAndYearString(date :NSDate) -> String{
+    
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: currentDate)
+        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
         
         let year =  components.year
         let monthName = NSDateFormatter().monthSymbols[components.month - 1]
         
-        transactionsMonth.text = monthName + " " + String(year)
+        return monthName + " " + String(year)
     }
-    
     func setCashFlowData(){
         setCashFlowMonth()
         setCashFlowAmount()
@@ -340,6 +362,54 @@ class DashboardVC: UIViewController {
         pieChartView.notifyDataSetChanged()
     }
     
+    func setBudgetValues(){
+        
+        let date =  NSDate()
+        let budgets = Array(realm.objects(Budget).filter("date > %@ AND date <= %@", dateUtils.startOfMonth(date)!, dateUtils.endOfMonth(date)!))
+        if budgets.count > 0 {
+        
+            var toalLimitOfMonth = 0.0
+            var totalTransactionAmoutOfMonth = 0.0
+            
+            for budget in budgets {
+                
+                let transactions = Array(realm.objects(Transaction).filter("date > %@ AND date <= %@", dateUtils.startOfMonth(date)!, dateUtils.endOfMonth(date)!).filter("category = %@",budget.category!))
+                
+                var totalTransactionAmount = 0.0
+                for transaction in transactions{
+                    totalTransactionAmount = totalTransactionAmount + transaction.amount
+                }
+                totalTransactionAmoutOfMonth = totalTransactionAmoutOfMonth + totalTransactionAmount
+                toalLimitOfMonth = toalLimitOfMonth + budget.limit
+            }
+            
+            let ratio = Float(totalTransactionAmoutOfMonth) / Float(toalLimitOfMonth)
+            budgetProgressView.progress = ratio
+            budgetProgressView.tintColor = UIColor(hue: 0.3806, saturation: 1, brightness: 0.79, alpha: 1.0) /* #00c939 */
+            
+            if totalTransactionAmoutOfMonth > ((toalLimitOfMonth) * (80/100)){
+                budgetProgressView.tintColor = UIColor(hue: 0.15, saturation: 0.83, brightness: 0.95, alpha: 1.0) /* #f2de29 */
+            }
+            
+            var leftLimitLabelText = "$"
+            if totalTransactionAmoutOfMonth <= toalLimitOfMonth {
+                leftLimitLabelText = leftLimitLabelText + String(toalLimitOfMonth - totalTransactionAmoutOfMonth) + " Left"
+            }else{
+                budgetProgressView.tintColor = UIColor(hue: 0.0222, saturation: 0.8, brightness: 0.97, alpha: 1.0) /* #f74b31 */
+                leftLimitLabelText = leftLimitLabelText + String(totalTransactionAmoutOfMonth - toalLimitOfMonth) + " Over"
+            }
+            let limitLabelText = "$" + String(totalTransactionAmoutOfMonth) + " of " + "$" + String(toalLimitOfMonth)
+            budgetMonthLabel.text = getMonthAndYearString(date)
+            budgetLimitInfoLabel.text = limitLabelText
+            budgetLeftLimitInfoLabel.text = leftLimitLabelText
+            noBudgetsLabel.hidden = true
+            
+        }else{
+            budgetContentView.removeFromSuperview()
+            noBudgetsLabel.hidden = false
+            budgetLeftLimitInfoLabel.hidden = true
+        }
+    }
     // to make entries when app launches first time
     func createCategories(){
         //creating category
@@ -433,7 +503,6 @@ class DashboardVC: UIViewController {
             realm.add(category13)
             realm.add(category14)
         }
-
     }
     
 //    func scheduleLocal() {
