@@ -6,9 +6,11 @@
 use_frameworks!
 target 'SaveNSpend' do
 pod 'RealmSwift'
+pod 'Charts'
 end
 
 target 'SaveNSpendTests' do
 pod 'RealmSwift'
+pod 'Charts'
 end
 

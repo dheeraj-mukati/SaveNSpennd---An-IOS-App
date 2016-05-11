@@ -133,7 +133,8 @@ class DashboardVC: UIViewController {
         pieChartView.alpha = 1
         
         let legend = pieChartView.legend
-        legend.position = ChartLegend.Position.LeftOfChart
+        legend.position = ChartLegend.ChartLegendPosition.LeftOfChart
+        
         legend.xEntrySpace = 7.0
         legend.yEntrySpace = 0.0
         legend.yOffset = 0.0

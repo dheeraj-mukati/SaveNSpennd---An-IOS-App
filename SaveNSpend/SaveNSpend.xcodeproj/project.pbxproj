@@ -22,7 +22,6 @@
 		9E6DB6CD1CDFFD7D00E7BABF /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CC1CDFFD7D00E7BABF /* forward.png */; };
 		9E6DB6D31CE039E900E7BABF /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6D21CE039E900E7BABF /* DateUtils.swift */; };
 		9E85F0291CE3B0C000F3803A /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85F0281CE3B0C000F3803A /* SettingsVC.swift */; };
-		9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */; };
 		9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */; };
 		9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9619531CD416D300FAFC61 /* DashboardVC.swift */; };
 		9E9C75EB1CB5B5D1003BC991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */; };
@@ -39,6 +38,7 @@
 		9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA31CC87DB50084606A /* ViewController.swift */; };
 		9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */; };
 		9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */; };
+		9EE6C6B31CE3D11B000128D7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE6C6B21CE3D11B000128D7 /* SWRevealViewController.m */; };
 		9EE849A51CD83A3A00339FFD /* menu_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EE849A41CD83A3A00339FFD /* menu_filled.png */; };
 		C8C1D117BCB6A71219AA0696 /* Pods_SaveNSpendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EE07ACD07AEA78781442C /* Pods_SaveNSpendTests.framework */; };
 		EDA8A236EB60049292506E9C /* Pods_SaveNSpend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */; };
@@ -122,9 +122,6 @@
 		9E6DB6CC1CDFFD7D00E7BABF /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forward.png; path = images/forward.png; sourceTree = "<group>"; };
 		9E6DB6D21CE039E900E7BABF /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = utilities/DateUtils.swift; sourceTree = "<group>"; };
 		9E85F0281CE3B0C000F3803A /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = "View Controller/SettingsVC.swift"; sourceTree = "<group>"; };
-		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SaveNSpend-Bridging-Header.h"; path = "SaveNSpend/Supporting Files/SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
-		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "SaveNSpend/Supporting Files/SWRevealViewController.h"; sourceTree = "<group>"; };
-		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "SaveNSpend/Supporting Files/SWRevealViewController.m"; sourceTree = "<group>"; };
 		9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuTableVC.swift; path = "View Controller/MainMenuTableVC.swift"; sourceTree = "<group>"; };
 		9E9619531CD416D300FAFC61 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardVC.swift; path = "View Controller/DashboardVC.swift"; sourceTree = "<group>"; };
 		9E9C75E71CB5B5D1003BC991 /* SaveNSpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveNSpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +142,8 @@
 		9EE3FAA31CC87DB50084606A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controller/ViewController.swift"; sourceTree = "<group>"; };
 		9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryVC.swift; path = "View Controller/CategoryVC.swift"; sourceTree = "<group>"; };
 		9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCategoryVC.swift; path = "View Controller/AddCategoryVC.swift"; sourceTree = "<group>"; };
+		9EE6C6B11CE3D11B000128D7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		9EE6C6B21CE3D11B000128D7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9EE849A41CD83A3A00339FFD /* menu_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_filled.png; path = images/menu_filled.png; sourceTree = "<group>"; };
 		F7447143FFB20308198D6092 /* Pods-SaveNSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,8 +222,8 @@
 		9E86E36C1CD6ACB9004F2394 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */,
-				9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */,
+				9EE6C6B11CE3D11B000128D7 /* SWRevealViewController.h */,
+				9EE6C6B21CE3D11B000128D7 /* SWRevealViewController.m */,
 			);
 			name = "Supporting Files";
 			path = ..;
@@ -233,7 +232,6 @@
 		9E9C75DE1CB5B5D1003BC991 = {
 			isa = PBXGroup;
 			children = (
-				9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */,
 				9E9C75E91CB5B5D1003BC991 /* SaveNSpend */,
 				9E9C75FE1CB5B5D2003BC991 /* SaveNSpendTests */,
 				9E9C75E81CB5B5D1003BC991 /* Products */,
@@ -568,7 +566,6 @@
 			files = (
 				9ED5BD721CB5C86E004BC933 /* Account.swift in Sources */,
 				9EE3FAA21CC87D810084606A /* AddAccountVC.swift in Sources */,
-				9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */,
 				9ED5BD741CB5CAA9004BC933 /* Budget.swift in Sources */,
 				9EE3FAA71CC87E7C0084606A /* CategoryVC.swift in Sources */,
 				9EE3FAA01CC87D450084606A /* AccountVC.swift in Sources */,
@@ -585,6 +582,7 @@
 				9E5D8EEC1CE2337800CB7879 /* AddBudgetVC.swift in Sources */,
 				9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */,
 				9E5D8EE71CE2336300CB7879 /* BudgetVC.swift in Sources */,
+				9EE6C6B31CE3D11B000128D7 /* SWRevealViewController.m in Sources */,
 				9EE3FAA41CC87DB50084606A /* ViewController.swift in Sources */,
 				9ED5BD6D1CB5BE19004BC933 /* Category.swift in Sources */,
 			);
