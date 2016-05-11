@@ -40,34 +40,39 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
 
     @IBAction func saveTransaction(sender: UIBarButtonItem) {
         
-        let transaction = Transaction()
-        transaction.id = transaction.incrementaID()
-        transaction.amount = Double(transactionAmount.text!)!
-        transaction.date = transactionDate.date
-        print(transaction.date)
-    
-        let selectedTransactionType = transactionType.titleForSegmentAtIndex(transactionType.selectedSegmentIndex)!
+        if transactionAmount.text == "" {
+            showErrorAlert()
+        }else{
         
-        let selectedCategory = categories[self.category.selectedRowInComponent(0)]
-        
-        let categoryTypePredict = NSPredicate(format: "type = %@", selectedTransactionType)
-        let categoryNamePredict = NSPredicate(format: "name = %@", selectedCategory)
-        let category = realm.objects(Category).filter(categoryTypePredict).filter(categoryNamePredict)[0]
-        
-        transaction.category = category
-        
-        let selectedBankAccount = bankAccounts[self.bankAccount.selectedRowInComponent(0)]
-        let bankAccountNamePredict = NSPredicate(format: "bankName = %@", selectedBankAccount)
-        
-        let bankAccount = realm.objects(Account).filter(bankAccountNamePredict)[0]
-        transaction.account = bankAccount
-        
-        // Add to the Realm inside a transaction
-        try! realm.write {
-            realm.add(transaction, update: true)
-            updateBankBalance(bankAccount, transactionAmount: Double(transactionAmount.text!)!, categoryType: category.type)
+            let transaction = Transaction()
+            transaction.id = transaction.incrementaID()
+            transaction.amount = Double(transactionAmount.text!)!
+            transaction.date = transactionDate.date
+            print(transaction.date)
+            
+            let selectedTransactionType = transactionType.titleForSegmentAtIndex(transactionType.selectedSegmentIndex)!
+            
+            let selectedCategory = categories[self.category.selectedRowInComponent(0)]
+            
+            let categoryTypePredict = NSPredicate(format: "type = %@", selectedTransactionType)
+            let categoryNamePredict = NSPredicate(format: "name = %@", selectedCategory)
+            let category = realm.objects(Category).filter(categoryTypePredict).filter(categoryNamePredict)[0]
+            
+            transaction.category = category
+            
+            let selectedBankAccount = bankAccounts[self.bankAccount.selectedRowInComponent(0)]
+            let bankAccountNamePredict = NSPredicate(format: "bankName = %@", selectedBankAccount)
+            
+            let bankAccount = realm.objects(Account).filter(bankAccountNamePredict)[0]
+            transaction.account = bankAccount
+            
+            // Add to the Realm inside a transaction
+            try! realm.write {
+                realm.add(transaction, update: true)
+                updateBankBalance(bankAccount, transactionAmount: Double(transactionAmount.text!)!, categoryType: category.type)
+            }
+            showTransactionVC()
         }
-        showTransactionVC()
     }
     
     @IBAction func cancelTransaction(sender: AnyObject) {
@@ -129,5 +134,14 @@ class AddTransactionVC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             return bankAccounts[row]
         }
         return ""
+    }
+    
+    func showErrorAlert(){
+        
+        let alertController = UIAlertController(title: "Error", message:
+            "Fields can not be blank!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }

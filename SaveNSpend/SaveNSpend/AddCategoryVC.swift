@@ -64,23 +64,28 @@ class AddCategoryVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBAction func addCategory(sender: AnyObject) {
         
         //creating category
+        if categoryName.text == "" {
+            showErrorAlert()
+            
+        }else{
         
-        let category = Category()
-        if categoryToBeEdit != nil {
-            category.id = categoryToBeEdit.id
-        }else {
-            category.id = category.incrementaID()
+            let category = Category()
+            if categoryToBeEdit != nil {
+                category.id = categoryToBeEdit.id
+            }else {
+                category.id = category.incrementaID()
+            }
+            
+            category.name = categoryName.text!
+            category.type = categoryTypeArray[categoryType.selectedRowInComponent(0)]
+            
+            // Add to the Realm inside a transaction
+            try! realm.write {
+                realm.add(category, update: true)
+            }
+            
+            showCategoryVC()
         }
-        
-        category.name = categoryName.text!
-        category.type = categoryTypeArray[categoryType.selectedRowInComponent(0)]
-        
-        // Add to the Realm inside a transaction
-        try! realm.write {
-            realm.add(category, update: true)
-        }
-
-        showCategoryVC()
     }
     
     @IBAction func cancelAddCategory(sender: AnyObject) {
@@ -95,14 +100,13 @@ class AddCategoryVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         //let categoryVC = storyboard.instantiateViewControllerWithIdentifier("category_strb_id") as! CategoryVC
         //self.presentViewController(categoryVC, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showErrorAlert(){
+        
+        let alertController = UIAlertController(title: "Error", message:
+            "Fields can not be blank!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
-    */
-
 }

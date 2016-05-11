@@ -10,7 +10,7 @@ import UIKit
 
 class MainMenuTableVC: UITableViewController {
 
-    let mainMenuArray = ["Dashboard", "Transactions","Budget", "Categories","Bank Accounts"]
+    let mainMenuArray = ["Dashboard", "Transactions","Budgets", "Categories","Bank Accounts", "Settings"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

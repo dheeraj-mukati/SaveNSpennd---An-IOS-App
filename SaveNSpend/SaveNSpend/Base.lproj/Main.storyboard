@@ -237,7 +237,7 @@
                                     <segue destination="cV8-1f-uq3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2zW-Io-als"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Budget" id="hcX-CM-6Np">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Budgets" id="hcX-CM-6Np">
                                 <rect key="frame" x="0.0" y="216" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcX-CM-6Np" id="zpy-Zl-Bxk">
@@ -268,6 +268,17 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="tpf-zZ-KO0" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="mfB-zg-uFd"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Settings" id="gZO-2U-dbq">
+                                <rect key="frame" x="0.0" y="348" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gZO-2U-dbq" id="OOg-me-gRp">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Waw-p3-Y8T" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="xdF-0y-Z9f"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -638,6 +649,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="26" id="xft-bF-CXb"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iW1-VQ-Fd5">
                                                                 <rect key="frame" x="16" y="8" width="560" height="16"/>
@@ -686,7 +700,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No budgets for this month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-bc-Fnz">
-                                                        <rect key="frame" x="192" y="28.5" width="201" height="21"/>
+                                                        <rect key="frame" x="192" y="28" width="201" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -710,6 +724,10 @@
                                                     <constraint firstItem="coJ-bc-Fnz" firstAttribute="centerX" secondItem="xDv-qL-0Wo" secondAttribute="centerX" id="vmO-kr-Wv6"/>
                                                     <constraint firstItem="ZEN-i0-lA7" firstAttribute="top" secondItem="DDg-Hj-mOA" secondAttribute="bottom" constant="8" id="yE4-oV-Vab"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.5"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
@@ -1489,7 +1507,7 @@
                                     <constraint firstAttribute="height" constant="65" id="pAv-DJ-O90"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Budget" id="5aa-Ho-Iq9">
+                                    <navigationItem title="Budgets" id="5aa-Ho-Iq9">
                                         <barButtonItem key="leftBarButtonItem" image="menu_filled.png" id="KW9-BA-Txo"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gtB-Zz-B5g">
                                             <connections>
@@ -1555,7 +1573,7 @@
                                     <constraint firstAttribute="height" constant="65" id="YTP-7O-E0S"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="MZA-Qf-lyw">
+                                    <navigationItem title="Add Budget" id="MZA-Qf-lyw">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ufM-6q-gos">
                                             <connections>
                                                 <action selector="cancelBudget:" destination="gIo-9l-zkB" id="hYW-9z-zxY"/>
@@ -1646,6 +1664,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4H-aP-nlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1168" y="1599"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="tZB-8N-U9l">
+            <objects>
+                <viewController id="Waw-p3-Y8T" customClass="SettingsVC" customModule="SaveNSpend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E2u-ut-fiI"/>
+                        <viewControllerLayoutGuide type="bottom" id="g4V-aq-3vm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gWo-Jc-UuF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-Xv-BC4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="ns0-Na-yYO"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Settings" id="VH3-9j-e6i">
+                                        <barButtonItem key="leftBarButtonItem" image="menu_filled.png" id="kdC-11-WCZ"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6NH-jz-Bn7">
+                                            <connections>
+                                                <action selector="saveSettings:" destination="Waw-p3-Y8T" id="Jtb-sK-1EO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Currency Symbol:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DP2-lx-ZNl">
+                                <rect key="frame" x="20" y="81" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hAq-tM-aI4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnb-dq-YTV">
+                                <rect key="frame" x="20" y="110" width="560" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="skd-WS-Ygy"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Waw-p3-Y8T" id="0to-W0-LKj"/>
+                                    <outlet property="delegate" destination="Waw-p3-Y8T" id="rCW-fb-O0j"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DP2-lx-ZNl" firstAttribute="top" secondItem="uBY-Xv-BC4" secondAttribute="bottom" constant="16" id="E8k-YT-T3j"/>
+                            <constraint firstItem="uBY-Xv-BC4" firstAttribute="leading" secondItem="gWo-Jc-UuF" secondAttribute="leading" id="J1H-3N-9go"/>
+                            <constraint firstItem="uBY-Xv-BC4" firstAttribute="top" secondItem="gWo-Jc-UuF" secondAttribute="top" id="fVO-mG-eWA"/>
+                            <constraint firstAttribute="trailing" secondItem="dnb-dq-YTV" secondAttribute="trailing" constant="20" id="gXb-qv-Kzi"/>
+                            <constraint firstItem="dnb-dq-YTV" firstAttribute="leading" secondItem="gWo-Jc-UuF" secondAttribute="leading" constant="20" id="hiO-3T-Lie"/>
+                            <constraint firstItem="dnb-dq-YTV" firstAttribute="top" secondItem="DP2-lx-ZNl" secondAttribute="bottom" constant="8" id="ieg-FL-ANQ"/>
+                            <constraint firstAttribute="trailing" secondItem="DP2-lx-ZNl" secondAttribute="trailing" constant="20" id="mjG-2z-W4U"/>
+                            <constraint firstAttribute="trailing" secondItem="uBY-Xv-BC4" secondAttribute="trailing" id="nr7-As-U5p"/>
+                            <constraint firstItem="DP2-lx-ZNl" firstAttribute="leading" secondItem="gWo-Jc-UuF" secondAttribute="leading" constant="20" id="zgg-Bg-0je"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currencySymbolPicker" destination="dnb-dq-YTV" id="BZe-yW-hB0"/>
+                        <outlet property="openMenuItemBar" destination="kdC-11-WCZ" id="FLf-Dj-zCb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cim-qd-YwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1168" y="2353"/>
         </scene>
     </scenes>
     <resources>

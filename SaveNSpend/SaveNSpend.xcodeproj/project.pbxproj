@@ -22,6 +22,7 @@
 		9E6DB6CD1CDFFD7D00E7BABF /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CC1CDFFD7D00E7BABF /* forward.png */; };
 		9E6DB6D01CE037DF00E7BABF /* utilities in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CF1CE037DF00E7BABF /* utilities */; };
 		9E6DB6D31CE039E900E7BABF /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6D21CE039E900E7BABF /* DateUtils.swift */; };
+		9E85F0291CE3B0C000F3803A /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85F0281CE3B0C000F3803A /* SettingsVC.swift */; };
 		9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */; };
 		9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */; };
 		9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9619531CD416D300FAFC61 /* DashboardVC.swift */; };
@@ -122,6 +123,7 @@
 		9E6DB6CC1CDFFD7D00E7BABF /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
 		9E6DB6CF1CE037DF00E7BABF /* utilities */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = utilities; sourceTree = "<group>"; };
 		9E6DB6D21CE039E900E7BABF /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = utilities/DateUtils.swift; sourceTree = "<group>"; };
+		9E85F0281CE3B0C000F3803A /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
+				9E85F0281CE3B0C000F3803A /* SettingsVC.swift */,
 				9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */,
 				9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */,
 				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
@@ -561,6 +564,7 @@
 				9E15C4FC1CCC3EE100F8FB29 /* TransactionTableViewCell.swift in Sources */,
 				9EE3FAA91CC87EA00084606A /* AddCategoryVC.swift in Sources */,
 				9ED5BD6F1CB5C3FB004BC933 /* Transaction.swift in Sources */,
+				9E85F0291CE3B0C000F3803A /* SettingsVC.swift in Sources */,
 				9E9619541CD416D300FAFC61 /* DashboardVC.swift in Sources */,
 				9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */,
 				9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */,

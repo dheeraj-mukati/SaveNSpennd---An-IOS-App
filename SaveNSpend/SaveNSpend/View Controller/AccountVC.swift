@@ -26,17 +26,13 @@ class AccountVC: UIViewController, AccountAddedDelegate {
     let realm = try! Realm()
     var accounts: Results<(Account)>!
     
+    let currencySymbol = NSUserDefaults.standardUserDefaults().stringForKey("cirrencySymbol")!
+    
     // MARK: - Super class Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // to delete default.real
-        
-        //        if let path = Realm.Configuration.defaultConfiguration.path {
-        //            try! NSFileManager().removeItemAtPath(path)
-        //        }
-        
+
         openMenuItemBar.target = self.revealViewController()
         openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
         
@@ -57,14 +53,14 @@ class AccountVC: UIViewController, AccountAddedDelegate {
                 addAccountUILabel.removeFromSuperview()
             }else{
                 customSC.setTitle(bankAccount.bankName, forSegmentAtIndex: editedSegmentControlIndex)
-                accountBalanceLabel.text = "$" + String(bankAccount.balance)
+                accountBalanceLabel.text = currencySymbol + String(bankAccount.balance)
             }
         } else {
             if editedSegmentControlIndex == -1 {
                 customSC.insertSegmentWithTitle(bankAccount.bankName, atIndex: accounts.count, animated: true)
             }else{
                 customSC.setTitle(bankAccount.bankName, forSegmentAtIndex: editedSegmentControlIndex)
-                accountBalanceLabel.text = "$" + String(bankAccount.balance)
+                accountBalanceLabel.text = currencySymbol + String(bankAccount.balance)
             }
             scrollView.contentSize = customSC.frame.size // updating scrolView width
         }
@@ -127,8 +123,6 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         customSC.selectedSegmentIndex = 0
         customSC.translatesAutoresizingMaskIntoConstraints = false
         customSC.addTarget(self, action: #selector(AccountVC.bankAccountChanged(_:)), forControlEvents: .ValueChanged)
-        let attr = NSDictionary(object: UIFont(name: "HelveticaNeue-Bold", size: 17.0)!, forKey: NSFontAttributeName)
-        customSC.setTitleTextAttributes(attr as [NSObject : AnyObject] , forState: .Normal)
         self.scrollView.addSubview(customSC)
         
         scrollView.contentSize = customSC.frame.size
@@ -137,14 +131,14 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         if customSC.frame.width <= self.view.frame.width {
             xConstraint = NSLayoutConstraint(item: customSC, attribute: .CenterX, relatedBy: .Equal, toItem: self.scrollView, attribute: .CenterX, multiplier: 1, constant: 0)
             
-            yConstraint = NSLayoutConstraint(item: customSC, attribute: .Top, relatedBy: .Equal, toItem: self.scrollView, attribute: .Top, multiplier: 1, constant: 8)
+            yConstraint = NSLayoutConstraint(item: customSC, attribute: .Top, relatedBy: .Equal, toItem: self.scrollView, attribute: .Top, multiplier: 1, constant: 18)
         }else {
             xConstraint = NSLayoutConstraint(item: customSC, attribute: .Left, relatedBy: .Equal, toItem: self.scrollView, attribute: .Left, multiplier: 1, constant: 8)
             
             yConstraint = NSLayoutConstraint(item: customSC, attribute: .CenterY, relatedBy: .Equal, toItem: self.scrollView, attribute: .CenterY, multiplier: 1, constant: 5)
         }
         
-        let heightConstraint = NSLayoutConstraint(item: customSC, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 55)
+        let heightConstraint = NSLayoutConstraint(item: customSC, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 35)
         
         self.scrollView.addConstraint(heightConstraint)
         self.scrollView.addConstraint(xConstraint)
@@ -245,7 +239,7 @@ class AccountVC: UIViewController, AccountAddedDelegate {
         let predict = NSPredicate(format: "bankName = %@", bankName)
         let firstBankAccountBalance = realm.objects(Account).filter(predict).valueForKey("balance") as! NSArray
         print(firstBankAccountBalance[0])
-        accountBalanceLabel.text = "$" + String(firstBankAccountBalance[0])
+        accountBalanceLabel.text = currencySymbol + String(firstBankAccountBalance[0])
     }
     
     func editBankAccount(img: AnyObject){

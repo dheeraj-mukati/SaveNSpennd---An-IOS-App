@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        UINavigationBar.appearance().barTintColor = UIColor(hue: 0.6778, saturation: 0.45, brightness: 0.93, alpha: 1.0) /* #8982ed */
+        UINavigationBar.appearance().barTintColor = UIColor(hue: 0.2361, saturation: 1, brightness: 0.78, alpha: 1.0) /* #74c600 */
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         if #available(iOS 8, *) {
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
         }

@@ -30,6 +30,8 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     let dateUtils = DateUtils()
     
+    let currencySymbol = NSUserDefaults.standardUserDefaults().stringForKey("cirrencySymbol")!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +67,7 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("transaction_cell", forIndexPath: indexPath) as! TransactionTableViewCell
-        cell.transactionAmount.text = "$" + String(transactions[indexPath.row].amount)
+        cell.transactionAmount.text = currencySymbol + String(transactions[indexPath.row].amount)
         cell.transactionCategory.text = (transactions[indexPath.row]).category!.name
         cell.transactionDate.text = formatDate(transactions[indexPath.row].date)
         cell.bankName.text = transactions[indexPath.row].account!.bankName
@@ -92,8 +94,8 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 totalExpense = totalExpense + transaction.amount
             }
         }
-        incomeAmountTotal.text = "$" + String(totalIncome)
-        expenseAmountTotal.text = "$" + String(totalExpense)
+        incomeAmountTotal.text = currencySymbol + String(totalIncome)
+        expenseAmountTotal.text = currencySymbol + String(totalExpense)
     }
     
     private func setTransactions(startDate: NSDate, endDate: NSDate){

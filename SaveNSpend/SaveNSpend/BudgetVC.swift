@@ -23,6 +23,9 @@ class BudgetVC: UIViewController {
     
     let customBdgetsUIViewHeight = CGFloat(70)
     let topConstraints = CGFloat(15)
+    
+    let currencySymbol = NSUserDefaults.standardUserDefaults().stringForKey("cirrencySymbol")!
+    
     override func viewDidLoad() {
         
         openMenuItemBar.target = self.revealViewController()
@@ -88,7 +91,7 @@ class BudgetVC: UIViewController {
         var isLimitCrossed = false
         var isTotalReachedNearToLimit = false
         
-        var leftLimitLabelText = "$"
+        var leftLimitLabelText = currencySymbol
         if totalTransactionAmount <= limit {
             leftLimitLabelText = leftLimitLabelText + String(limit - totalTransactionAmount) + " Left"
         }else{
@@ -103,7 +106,7 @@ class BudgetVC: UIViewController {
         
         createBudgetProgressBar(customBudgetUIView, limit: limit, totalTransactionAmount: Float(totalTransactionAmount),isLimitCrossed: isLimitCrossed,isTotalReachedNearToLimit: isTotalReachedNearToLimit)
         
-        let limitLabelText = "$" + String(totalTransactionAmount) + " of " + "$" + String(limit)
+        let limitLabelText = currencySymbol + String(totalTransactionAmount) + " of " + currencySymbol + String(limit)
         createLimitUILabel(customBudgetUIView, limit: limitLabelText)
     }
     

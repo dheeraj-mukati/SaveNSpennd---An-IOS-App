@@ -58,7 +58,7 @@ class DashboardVC: UIViewController {
     
     @IBOutlet weak var noBudgetsLabel: UILabel!
     
-    let currencySymbol = "$"
+    var currencySymbol = "$"
     
     let dateUtils = DateUtils()
     var currentDate = NSDate()
@@ -73,11 +73,13 @@ class DashboardVC: UIViewController {
         if(!NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch1.0")){
             //Put any code here and it will be executed only once.
             print("Is a first launch")
+            NSUserDefaults.standardUserDefaults().setValue("$", forKey: "cirrencySymbol")
             createCategories()
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch1.0")
             NSUserDefaults.standardUserDefaults().synchronize();
         }
         
+        currencySymbol = NSUserDefaults.standardUserDefaults().stringForKey("cirrencySymbol")!
         openMenuItemBar.target = self.revealViewController()
         openMenuItemBar.action = #selector(SWRevealViewController.revealToggle(_:))
         
@@ -119,14 +121,7 @@ class DashboardVC: UIViewController {
         }else {
             noAccountsLabel.hidden = false
         }
-        print("scrol width: \(scrollView.contentSize.width)")
-        print("scrol width: \(bankAccountsContentView.frame.width)")
-        print("view width: \(view.frame.width)")
-        //scrollView.contentSize = bankAccountsContentView.frame.size
-        print("scrol width1: \(scrollView.contentSize.width)")
-        print("scrol width1: \(bankAccountsContentView.frame.width)")
-        print("view width1: \(view.frame.width)")
-        
+
         totalEarnedProgressBar.clipsToBounds = true
         totalSpentPRogressBar.clipsToBounds = true
         
@@ -197,7 +192,7 @@ class DashboardVC: UIViewController {
     func createAccountBalanceUILabel(bankAccountUIView : UIView, balance: String){
         
         let accountBalanceLabel = UILabel()
-        accountBalanceLabel.text = "$" + balance
+        accountBalanceLabel.text = currencySymbol + balance
         accountBalanceLabel.textColor = UIColor.whiteColor()
         accountBalanceLabel.textAlignment = .Center
         accountBalanceLabel.font = accountBalanceLabel.font.fontWithSize(17)
@@ -391,14 +386,14 @@ class DashboardVC: UIViewController {
                 budgetProgressView.tintColor = UIColor(hue: 0.15, saturation: 0.83, brightness: 0.95, alpha: 1.0) /* #f2de29 */
             }
             
-            var leftLimitLabelText = "$"
+            var leftLimitLabelText = currencySymbol
             if totalTransactionAmoutOfMonth <= toalLimitOfMonth {
                 leftLimitLabelText = leftLimitLabelText + String(toalLimitOfMonth - totalTransactionAmoutOfMonth) + " Left"
             }else{
                 budgetProgressView.tintColor = UIColor(hue: 0.0222, saturation: 0.8, brightness: 0.97, alpha: 1.0) /* #f74b31 */
                 leftLimitLabelText = leftLimitLabelText + String(totalTransactionAmoutOfMonth - toalLimitOfMonth) + " Over"
             }
-            let limitLabelText = "$" + String(totalTransactionAmoutOfMonth) + " of " + "$" + String(toalLimitOfMonth)
+            let limitLabelText = currencySymbol + String(totalTransactionAmoutOfMonth) + " of " + currencySymbol + String(toalLimitOfMonth)
             budgetMonthLabel.text = getMonthAndYearString(date)
             budgetLimitInfoLabel.text = limitLabelText
             budgetLeftLimitInfoLabel.text = leftLimitLabelText
@@ -408,6 +403,7 @@ class DashboardVC: UIViewController {
             budgetContentView.removeFromSuperview()
             noBudgetsLabel.hidden = false
             budgetLeftLimitInfoLabel.hidden = true
+            budgetMonthLabel.hidden = true
         }
     }
     // to make entries when app launches first time
