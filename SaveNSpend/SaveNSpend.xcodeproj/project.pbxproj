@@ -20,7 +20,6 @@
 		9E6DB6C61CDFCE4400E7BABF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6DB6BD1CDFCAC600E7BABF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E6DB6CB1CDFFD6400E7BABF /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CA1CDFFD6400E7BABF /* back.png */; };
 		9E6DB6CD1CDFFD7D00E7BABF /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CC1CDFFD7D00E7BABF /* forward.png */; };
-		9E6DB6D01CE037DF00E7BABF /* utilities in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6CF1CE037DF00E7BABF /* utilities */; };
 		9E6DB6D31CE039E900E7BABF /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DB6D21CE039E900E7BABF /* DateUtils.swift */; };
 		9E85F0291CE3B0C000F3803A /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E85F0281CE3B0C000F3803A /* SettingsVC.swift */; };
 		9E86E3701CD6ACD4004F2394 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */; };
@@ -110,20 +109,19 @@
 		891055FF9C28BB78278B7512 /* Pods-SaveNSpend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.debug.xcconfig"; sourceTree = "<group>"; };
 		8CB1539CF8DD9554B853A279 /* Pods-SaveNSpendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpendTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpendTests/Pods-SaveNSpendTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveNSpend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
-		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
+		9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransactionVC.swift; path = "View Controller/AddTransactionVC.swift"; sourceTree = "<group>"; };
+		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionVC.swift; path = "View Controller/TransactionVC.swift"; sourceTree = "<group>"; };
 		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuUITableViewCell.swift; sourceTree = "<group>"; };
-		9E2526991CE101BD002FA798 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
-		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
-		9E5D8EE61CE2336300CB7879 /* BudgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetVC.swift; sourceTree = "<group>"; };
-		9E5D8EEB1CE2337800CB7879 /* AddBudgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBudgetVC.swift; sourceTree = "<group>"; };
+		9E2526991CE101BD002FA798 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = images/home.png; sourceTree = "<group>"; };
+		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit.png; path = images/edit.png; sourceTree = "<group>"; };
+		9E5D8EE61CE2336300CB7879 /* BudgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BudgetVC.swift; path = "View Controller/BudgetVC.swift"; sourceTree = "<group>"; };
+		9E5D8EEB1CE2337800CB7879 /* AddBudgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBudgetVC.swift; path = "View Controller/AddBudgetVC.swift"; sourceTree = "<group>"; };
 		9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
-		9E6DB6CA1CDFFD6400E7BABF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		9E6DB6CC1CDFFD7D00E7BABF /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
-		9E6DB6CF1CE037DF00E7BABF /* utilities */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; path = utilities; sourceTree = "<group>"; };
+		9E6DB6CA1CDFFD6400E7BABF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/back.png; sourceTree = "<group>"; };
+		9E6DB6CC1CDFFD7D00E7BABF /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forward.png; path = images/forward.png; sourceTree = "<group>"; };
 		9E6DB6D21CE039E900E7BABF /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = utilities/DateUtils.swift; sourceTree = "<group>"; };
-		9E85F0281CE3B0C000F3803A /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		9E85F0281CE3B0C000F3803A /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = "View Controller/SettingsVC.swift"; sourceTree = "<group>"; };
 		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -145,9 +143,9 @@
 		9EE3FA9F1CC87D450084606A /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountVC.swift; path = "View Controller/AccountVC.swift"; sourceTree = "<group>"; };
 		9EE3FAA11CC87D810084606A /* AddAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddAccountVC.swift; path = "View Controller/AddAccountVC.swift"; sourceTree = "<group>"; };
 		9EE3FAA31CC87DB50084606A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controller/ViewController.swift"; sourceTree = "<group>"; };
-		9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
-		9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryVC.swift; sourceTree = "<group>"; };
-		9EE849A41CD83A3A00339FFD /* menu_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_filled.png; sourceTree = "<group>"; };
+		9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryVC.swift; path = "View Controller/CategoryVC.swift"; sourceTree = "<group>"; };
+		9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCategoryVC.swift; path = "View Controller/AddCategoryVC.swift"; sourceTree = "<group>"; };
+		9EE849A41CD83A3A00339FFD /* menu_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_filled.png; path = images/menu_filled.png; sourceTree = "<group>"; };
 		F7447143FFB20308198D6092 /* Pods-SaveNSpend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveNSpend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaveNSpend/Pods-SaveNSpend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,9 +195,20 @@
 			isa = PBXGroup;
 			children = (
 				9E6DB6D21CE039E900E7BABF /* DateUtils.swift */,
-				9E6DB6CF1CE037DF00E7BABF /* utilities */,
 			);
 			name = utilities;
+			sourceTree = "<group>";
+		};
+		9E85F02D1CE3BCEC00F3803A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9E4B01FE1CC550FA00614392 /* edit.png */,
+				9EE849A41CD83A3A00339FFD /* menu_filled.png */,
+				9E2526991CE101BD002FA798 /* home.png */,
+				9E6DB6CA1CDFFD6400E7BABF /* back.png */,
+				9E6DB6CC1CDFFD7D00E7BABF /* forward.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		9E86E36C1CD6ACB9004F2394 /* Supporting Files */ = {
@@ -237,31 +246,18 @@
 			isa = PBXGroup;
 			children = (
 				9E6DB6B51CDFCAC600E7BABF /* Charts.xcodeproj */,
-				9EE849A41CD83A3A00339FFD /* menu_filled.png */,
-				9E2526991CE101BD002FA798 /* home.png */,
-				9E6DB6CA1CDFFD6400E7BABF /* back.png */,
-				9E6DB6CC1CDFFD7D00E7BABF /* forward.png */,
+				9E85F02D1CE3BCEC00F3803A /* images */,
 				9E6DB6CE1CE0376800E7BABF /* utilities */,
 				9EE3FAA51CC87DC30084606A /* View Controller */,
 				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
-				9E85F0281CE3B0C000F3803A /* SettingsVC.swift */,
 				9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */,
-				9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */,
 				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
-				9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */,
-				9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */,
-				9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */,
-				9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */,
-				9E9619531CD416D300FAFC61 /* DashboardVC.swift */,
-				9E4B01FE1CC550FA00614392 /* edit.png */,
 				9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */,
 				9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */,
 				9E9C75F31CB5B5D1003BC991 /* LaunchScreen.storyboard */,
 				9E9C75F61CB5B5D1003BC991 /* Info.plist */,
-				9E5D8EE61CE2336300CB7879 /* BudgetVC.swift */,
-				9E5D8EEB1CE2337800CB7879 /* AddBudgetVC.swift */,
 			);
 			path = SaveNSpend;
 			sourceTree = "<group>";
@@ -289,6 +285,15 @@
 		9EE3FAA51CC87DC30084606A /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */,
+				9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */,
+				9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */,
+				9EE3FAA61CC87E7C0084606A /* CategoryVC.swift */,
+				9EE3FAA81CC87EA00084606A /* AddCategoryVC.swift */,
+				9E9619531CD416D300FAFC61 /* DashboardVC.swift */,
+				9E5D8EE61CE2336300CB7879 /* BudgetVC.swift */,
+				9E5D8EEB1CE2337800CB7879 /* AddBudgetVC.swift */,
+				9E85F0281CE3B0C000F3803A /* SettingsVC.swift */,
 				9EE3FA9F1CC87D450084606A /* AccountVC.swift */,
 				9EE3FAA11CC87D810084606A /* AddAccountVC.swift */,
 				9EE3FAA31CC87DB50084606A /* ViewController.swift */,
@@ -569,7 +574,6 @@
 				9E86E3721CD6B02F004F2394 /* MainMenuTableVC.swift in Sources */,
 				9E15C4F81CCBD4B200F8FB29 /* AddTransactionVC.swift in Sources */,
 				9E6DB6D31CE039E900E7BABF /* DateUtils.swift in Sources */,
-				9E6DB6D01CE037DF00E7BABF /* utilities in Sources */,
 				9E5D8EEC1CE2337800CB7879 /* AddBudgetVC.swift in Sources */,
 				9E15C4FA1CCC04D500F8FB29 /* TransactionVC.swift in Sources */,
 				9E5D8EE71CE2336300CB7879 /* BudgetVC.swift in Sources */,

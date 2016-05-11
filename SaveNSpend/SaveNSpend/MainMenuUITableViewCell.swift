@@ -11,8 +11,4 @@ class MainMenuUITableViewCell: UITableViewCell {
 
     @IBOutlet weak var appName: UILabel!
     
-    
-    @IBOutlet weak var menuLogo: UIImageView!
-    @IBOutlet weak var menuName: UILabel!
-    
 }
