@@ -111,8 +111,8 @@
 		9A24806B79EBDAF0EA34DB94 /* Pods_SaveNSpend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaveNSpend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E15C4F71CCBD4B200F8FB29 /* AddTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTransactionVC.swift; path = "View Controller/AddTransactionVC.swift"; sourceTree = "<group>"; };
 		9E15C4F91CCC04D500F8FB29 /* TransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionVC.swift; path = "View Controller/TransactionVC.swift"; sourceTree = "<group>"; };
-		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
-		9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuUITableViewCell.swift; sourceTree = "<group>"; };
+		9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionTableViewCell.swift; path = "Custom Table Cell/TransactionTableViewCell.swift"; sourceTree = "<group>"; };
+		9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuUITableViewCell.swift; path = "Custom Table Cell/MainMenuUITableViewCell.swift"; sourceTree = "<group>"; };
 		9E2526991CE101BD002FA798 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = images/home.png; sourceTree = "<group>"; };
 		9E4B01FE1CC550FA00614392 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit.png; path = images/edit.png; sourceTree = "<group>"; };
 		9E5D8EE61CE2336300CB7879 /* BudgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BudgetVC.swift; path = "View Controller/BudgetVC.swift"; sourceTree = "<group>"; };
@@ -122,11 +122,11 @@
 		9E6DB6CC1CDFFD7D00E7BABF /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forward.png; path = images/forward.png; sourceTree = "<group>"; };
 		9E6DB6D21CE039E900E7BABF /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = utilities/DateUtils.swift; sourceTree = "<group>"; };
 		9E85F0281CE3B0C000F3803A /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = "View Controller/SettingsVC.swift"; sourceTree = "<group>"; };
-		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
-		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuTableVC.swift; path = ../MainMenuTableVC.swift; sourceTree = "<group>"; };
-		9E9619531CD416D300FAFC61 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardVC.swift; path = ../DashboardVC.swift; sourceTree = "<group>"; };
+		9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SaveNSpend-Bridging-Header.h"; path = "SaveNSpend/Supporting Files/SaveNSpend-Bridging-Header.h"; sourceTree = "<group>"; };
+		9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "SaveNSpend/Supporting Files/SWRevealViewController.h"; sourceTree = "<group>"; };
+		9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "SaveNSpend/Supporting Files/SWRevealViewController.m"; sourceTree = "<group>"; };
+		9E86E3711CD6B02F004F2394 /* MainMenuTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuTableVC.swift; path = "View Controller/MainMenuTableVC.swift"; sourceTree = "<group>"; };
+		9E9619531CD416D300FAFC61 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardVC.swift; path = "View Controller/DashboardVC.swift"; sourceTree = "<group>"; };
 		9E9C75E71CB5B5D1003BC991 /* SaveNSpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveNSpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E9C75EF1CB5B5D1003BC991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,12 +211,20 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		9E85F02E1CE3BF0D00F3803A /* Custom Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */,
+				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
+			);
+			name = "Custom Table Cell";
+			sourceTree = "<group>";
+		};
 		9E86E36C1CD6ACB9004F2394 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				9E86E36E1CD6ACD4004F2394 /* SWRevealViewController.h */,
 				9E86E36F1CD6ACD4004F2394 /* SWRevealViewController.m */,
-				9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			path = ..;
@@ -225,6 +233,7 @@
 		9E9C75DE1CB5B5D1003BC991 = {
 			isa = PBXGroup;
 			children = (
+				9E86E36D1CD6ACD3004F2394 /* SaveNSpend-Bridging-Header.h */,
 				9E9C75E91CB5B5D1003BC991 /* SaveNSpend */,
 				9E9C75FE1CB5B5D2003BC991 /* SaveNSpendTests */,
 				9E9C75E81CB5B5D1003BC991 /* Products */,
@@ -251,9 +260,8 @@
 				9EE3FAA51CC87DC30084606A /* View Controller */,
 				9E86E36C1CD6ACB9004F2394 /* Supporting Files */,
 				9ED5BD701CB5C83B004BC933 /* RealmModel */,
+				9E85F02E1CE3BF0D00F3803A /* Custom Table Cell */,
 				9E9C75EE1CB5B5D1003BC991 /* Main.storyboard */,
-				9E2526941CE0F92F002FA798 /* MainMenuUITableViewCell.swift */,
-				9E15C4FB1CCC3EE100F8FB29 /* TransactionTableViewCell.swift */,
 				9E9C75EA1CB5B5D1003BC991 /* AppDelegate.swift */,
 				9E9C75F11CB5B5D1003BC991 /* Assets.xcassets */,
 				9E9C75F31CB5B5D1003BC991 /* LaunchScreen.storyboard */,
