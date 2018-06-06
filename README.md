@@ -1,4 +1,4 @@
-# SaveNSpennd---An-IOS-App
+# SaveNSpennd-An IOS App
 
 The idea for this app came up with an intention of keeping track of a user's budget on fingertips. 
 
